@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TestSuite xmlns="http://tempuri.org/SsisUnit.xsd">
   <ConnectionList>
-    <Connection name="AdventureWorks" connection="Provider=SQLNCLI;Data Source=localhost;Integrated Security=SSPI;Initial Catalog=Adventureworks" connectionType="ConnectionString"/>
+    <Connection name="AdventureWorks" connection="Provider=SQLNCLI11;Data Source=paldesk;Integrated Security=SSPI;Initial Catalog=Adventureworks2012" connectionType="ConnectionString"/>
   </ConnectionList>
   <Setup>
     <SqlCommand connectionRef="AdventureWorks" returnsValue="true">
@@ -14,7 +14,7 @@
     <VariableCommand operation="Get" name="ProductRowCount"/>
   </Setup>
   <Tests>
-    <Test name="PassedTestSQL" package="C:\Projects\ssisUnit\UTssis2008packages\UT Basic Scenario.dtsx" task="SELECT COUNT">
+    <Test name="PassedTestSQL" package="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\TestPackages\UTBasicScenario2012.dtsx" task="SELECT COUNT">
       <Assert name="Test Row Count Variable" expectedResult="80" testBefore="false">
         <VariableCommand operation="Get" name="ProductRowCount"/>
       </Assert>
@@ -22,12 +22,12 @@
         <VariableCommand operation="Get" name="ProductRowCount"/>
       </Assert>
     </Test>
-    <Test name="PassedTestProcess" package="C:\Projects\SSISUnit\SSIS2005\SSIS2005\UT Basic Scenario.dtsx" task="SELECT COUNT">
+    <Test name="PassedTestProcess" package="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\TestPackages\UTBasicScenario2012.dtsx" task="SELECT COUNT">
       <Assert name="Test Process" expectedResult="0" testBefore="true">
         <ProcessCommand process="CMD.EXE" arguments="/c DIR C:\Temp"/>
       </Assert>
     </Test>
-    <Test name="FailedTestSQL" package="C:\Projects\SSISUnit\SSIS2005\SSIS2005\UT Basic Scenario.dtsx" task="SELECT COUNT" >
+    <Test name="FailedTestSQL" package="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\TestPackages\UTBasicScenario2012.dtsx" task="SELECT COUNT" >
       <Assert name="Test Failed SQL" expectedResult="0" testBefore="false" expression="false">
         <SqlCommand connectionRef="AdventureWorks" returnsValue="true">
           SELECT 80
