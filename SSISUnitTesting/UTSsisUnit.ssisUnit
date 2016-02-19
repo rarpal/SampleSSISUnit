@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TestSuite xmlns="http://tempuri.org/SsisUnit.xsd">
   <ConnectionList>
-    <Connection name="AdventureWorks" connection="Provider=SQLNCLI11;Data Source=paldesk;Integrated Security=SSPI;Initial Catalog=Adventureworks2012" connectionType="ConnectionString"/>
+    <Connection name="AdventureWorks" connection="Provider=SQLNCLI11;Data Source=ravipc;Integrated Security=SSPI;Initial Catalog=Adventureworks2012" connectionType="ConnectionString"/>
   </ConnectionList>
   <Setup>
     <SqlCommand connectionRef="AdventureWorks" returnsValue="true">

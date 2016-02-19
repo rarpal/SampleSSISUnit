@@ -39,8 +39,12 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.SQLServer.ManagedDTS, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
     <Reference Include="SsisUnit2012">
-      <HintPath>..\..\..\ssisunit-111216\MAIN\SsisUnit\bin\Debug\SsisUnit2012.dll</HintPath>
+      <HintPath>..\..\..\ssisunit-111216\MAIN\SsisUnit\bin\Release\SsisUnit2012.dll</HintPath>
+    </Reference>
+    <Reference Include="SsisUnitBase">
+      <HintPath>..\..\..\ssisunit-111216\MAIN\SsisUnit\bin\Release\SsisUnitBase.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -62,12 +66,20 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ExternalFileResourceTestBase.cs" />
-    <Compile Include="HelperTests.cs" />
+    <Compile Include="ssisUnit_UTHelper.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="UTSsisUnit.ssisUnit" />
+    <None Include="UTSsisUnit.ssisUnit" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UTssisUnit_Package.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ssisUnitExample.ssisUnit">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

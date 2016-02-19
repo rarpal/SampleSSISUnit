@@ -15,7 +15,7 @@ namespace SSISUnitTesting
         [TestInitialize]
         public void Initialize()
         {
-            testFile = UnpackToFile("SSISUnitTesting.UTSsisUnit.ssisUnit");
+            testFile = UnpackToFile("SSISUnitTesting.ssisUnitExample.ssisUnit");
             testSuite = new SsisTestSuite(testFile);
         }
 
@@ -25,8 +25,8 @@ namespace SSISUnitTesting
             var target = new SqlCommand(testSuite);
             var doc = new XmlDocument();
             doc.Load(testFile);
-            Debug.Assert(doc.DocumentElement != null, "doc.DocumentElement != null");
-            Debug.Assert(doc.DocumentElement["Setup"] != null, "doc.DocumentElement != null");
+            //Debug.Assert(doc.DocumentElement != null, "doc.DocumentElement != null");
+            //Debug.Assert(doc.DocumentElement["Setup"] != null, "doc.DocumentElement != null");
             XmlNode command = doc.DocumentElement["Setup"]["SqlCommand"];
 
             object result = target.Execute(command, null, null);
