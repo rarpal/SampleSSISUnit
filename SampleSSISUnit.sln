@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SSIS", "TestPackages\SSIS.dtproj", "{97885C0A-056B-4DA5-9DB0-E983340A2255}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSISUnitTesting", "SSISUnitTesting\SSISUnitTesting.csproj", "{72863AA1-7266-4660-A0AF-F8F61639B402}"
-EndProject
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{3B12B7A1-DB93-4ECB-A81B-7F3F88AB3BA3}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SSISPackages", "SSISPackages\SSISPackages.dtproj", "{4B4A618E-FD47-49F8-A41A-D907615EA414}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSISUnitTests", "SSISUnitTests\SSISUnitTests.csproj", "{5D3D7CE6-8EED-4E96-8FF3-9674CA56D0B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,24 +14,24 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{97885C0A-056B-4DA5-9DB0-E983340A2255}.Debug|Any CPU.ActiveCfg = Development
-		{97885C0A-056B-4DA5-9DB0-E983340A2255}.Debug|Any CPU.Build.0 = Development
-		{97885C0A-056B-4DA5-9DB0-E983340A2255}.Development|Any CPU.ActiveCfg = Development
-		{97885C0A-056B-4DA5-9DB0-E983340A2255}.Development|Any CPU.Build.0 = Development
-		{97885C0A-056B-4DA5-9DB0-E983340A2255}.Release|Any CPU.ActiveCfg = Development
-		{97885C0A-056B-4DA5-9DB0-E983340A2255}.Release|Any CPU.Build.0 = Development
-		{72863AA1-7266-4660-A0AF-F8F61639B402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72863AA1-7266-4660-A0AF-F8F61639B402}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72863AA1-7266-4660-A0AF-F8F61639B402}.Development|Any CPU.ActiveCfg = Debug|Any CPU
-		{72863AA1-7266-4660-A0AF-F8F61639B402}.Development|Any CPU.Build.0 = Debug|Any CPU
-		{72863AA1-7266-4660-A0AF-F8F61639B402}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72863AA1-7266-4660-A0AF-F8F61639B402}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B12B7A1-DB93-4ECB-A81B-7F3F88AB3BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B12B7A1-DB93-4ECB-A81B-7F3F88AB3BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B12B7A1-DB93-4ECB-A81B-7F3F88AB3BA3}.Development|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B12B7A1-DB93-4ECB-A81B-7F3F88AB3BA3}.Development|Any CPU.Build.0 = Debug|Any CPU
 		{3B12B7A1-DB93-4ECB-A81B-7F3F88AB3BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B12B7A1-DB93-4ECB-A81B-7F3F88AB3BA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B4A618E-FD47-49F8-A41A-D907615EA414}.Debug|Any CPU.ActiveCfg = Development
+		{4B4A618E-FD47-49F8-A41A-D907615EA414}.Debug|Any CPU.Build.0 = Development
+		{4B4A618E-FD47-49F8-A41A-D907615EA414}.Development|Any CPU.ActiveCfg = Development
+		{4B4A618E-FD47-49F8-A41A-D907615EA414}.Development|Any CPU.Build.0 = Development
+		{4B4A618E-FD47-49F8-A41A-D907615EA414}.Release|Any CPU.ActiveCfg = Development
+		{4B4A618E-FD47-49F8-A41A-D907615EA414}.Release|Any CPU.Build.0 = Development
+		{5D3D7CE6-8EED-4E96-8FF3-9674CA56D0B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D3D7CE6-8EED-4E96-8FF3-9674CA56D0B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D3D7CE6-8EED-4E96-8FF3-9674CA56D0B1}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D3D7CE6-8EED-4E96-8FF3-9674CA56D0B1}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{5D3D7CE6-8EED-4E96-8FF3-9674CA56D0B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D3D7CE6-8EED-4E96-8FF3-9674CA56D0B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

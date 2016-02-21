@@ -15,7 +15,7 @@ namespace SSISUnitTesting
         [TestInitialize]
         public void Initialize()
         {
-            testFile = UnpackToFile("SSISUnitTesting.ssisUnitExample.ssisUnit");
+            testFile = UnpackToFile("SSISUnitTests.ssisUnitExample.ssisUnit");
             testSuite = new SsisTestSuite(testFile);
         }
 
@@ -30,6 +30,7 @@ namespace SSISUnitTesting
             XmlNode command = doc.DocumentElement["Setup"]["SqlCommand"];
 
             object result = target.Execute(command, null, null);
+            //object result = target.Execute();
             Assert.AreEqual(80, result);
         }
     }
