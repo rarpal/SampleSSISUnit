@@ -12,7 +12,7 @@
   </FileFormats>
   <Connections>
     <FlatFileConnection Name="cnFlatFile_Contacts" FilePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts_batch1.txt" FileFormat="fmFlatFile_Contacts"></FlatFileConnection>
-    <OleDbConnection Name="cnOLEDB_ContactsDB" ConnectionString="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"></OleDbConnection>
+    <OleDbConnection Name="cnOLEDB_ContactsDB" ConnectionString="Data Source=ravipc;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"></OleDbConnection>
   </Connections>
   <Packages>
     <Package Name="Load_Contacts" ProtectionLevel="EncryptSensitiveWithUserKey" ConstraintMode="Linear">
@@ -37,7 +37,42 @@
             </OleDbDestination>
           </Transformations>
         </Dataflow>
-        
+        <Dataflow Name="cfDFT_LoadContacts">
+          <Transformations>
+            <OleDbSource Name="dfOLESRC_staging_Contacts" ConnectionName="cnOLEDB_ContactsDB">
+              <DirectInput>
+                SELECT
+                stg.Number stg_Number,
+                dim.id_Number dim_Number,
+                stg.Name stg_Name,
+                dim.Name dim_Name,
+                stg.[Address] stg_Address,
+                dim.[Address] dim_Address,
+                stg.Telephone stg_Telephone,
+                stg.AddressDate stg_AddressDate,
+                dim.AddressDate dim_AddressDate,
+                ROW_NUMBER() OVER (PARTITION BY stg.Number ORDER BY stg.AddressDate DESC) rno
+                FROM staging.Contacts stg
+                LEFT JOIN dim_Contacts dim ON stg.Number = dim.id_Number
+              </DirectInput>
+            </OleDbSource>
+            <ConditionalSplit Name="dfCSPL_IsDuplicate">
+              <OutputPaths>
+                <OutputPath Name="duplicate">
+                  <Expression>rno > 1</Expression>
+                </OutputPath>
+              </OutputPaths>
+            </ConditionalSplit>
+            <ConditionalSplit Name="dfCSPL_IsNew">
+              <InputPath OutputPathName="dfCSPL_IsDuplicate.Default"></InputPath>
+              <OutputPaths>
+                <OutputPath Name="new">
+                  <Expression>dim_Number == </Expression>
+                </OutputPath>
+              </OutputPaths>
+            </ConditionalSplit>
+          </Transformations>
+        </Dataflow>
       </Tasks>
     </Package>
   </Packages>
