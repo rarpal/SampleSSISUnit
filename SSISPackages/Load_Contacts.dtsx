@@ -1,45 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<DTS:Executable DTS:CreationDate="03/21/2016 17:19:27" DTS:CreationName="SSIS.Package.3" DTS:CreatorComputerName="RAVIPC" DTS:CreatorName="Ravi" DTS:DTSID="{17186053-2CB4-485F-9AF9-393EA098EBE7}" DTS:ExecutableType="SSIS.Package.3" DTS:LastModifiedProductVersion="" DTS:LocaleID="2057" DTS:ObjectName="Load_Contacts" DTS:refId="Package" DTS:VersionBuild="0" DTS:VersionGUID="{2245A24E-029E-4A63-9357-30C61F751C74}" DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+<DTS:Executable DTS:CreationDate="03/21/2016 22:01:04" DTS:CreationName="SSIS.Package.3" DTS:CreatorComputerName="PALBOOK3" DTS:CreatorName="Ravi" DTS:DTSID="{A5365BF8-B6BC-476F-8345-2D5130AC9789}" DTS:ExecutableType="SSIS.Package.3" DTS:LastModifiedProductVersion="" DTS:LocaleID="2057" DTS:ObjectName="Load_Contacts" DTS:refId="Package" DTS:VersionBuild="0" DTS:VersionGUID="{FD133503-6799-4B2B-BAD8-35FB0AA9D439}" DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
   <DTS:ConnectionManagers>
-    <DTS:ConnectionManager DTS:CreationName="FLATFILE" DTS:DTSID="{C65B05E4-E919-4B60-8B3E-5F0691B2AFF0}" DTS:ObjectName="cnFlatFile_Contacts" DTS:refId="Package.ConnectionManagers[cnFlatFile_Contacts]">
+    <DTS:ConnectionManager DTS:CreationName="FLATFILE" DTS:DTSID="{BFC591C4-2EC9-4098-97A4-E30CBDC243AD}" DTS:ObjectName="cnFlatFile_Contacts" DTS:refId="Package.ConnectionManagers[cnFlatFile_Contacts]">
       <DTS:ObjectData>
         <DTS:ConnectionManager DTS:CodePage="1252" DTS:ColumnNamesInFirstDataRow="True" DTS:ConnectionString="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts_batch1.txt" DTS:Format="Delimited" DTS:HeaderRowDelimiter="_x000D__x000A_" DTS:LocaleID="2057" DTS:RowDelimiter="" DTS:TextQualifier="_x003C_none_x003E_">
           <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn DTS:ColumnDelimiter="_x0009_" DTS:ColumnType="Delimited" DTS:CreationName="" DTS:DataType="3" DTS:DTSID="{10633F75-4B67-45EE-A580-DD5A210EC15D}" DTS:ObjectName="Number" DTS:TextQualified="True">
+            <DTS:FlatFileColumn DTS:ColumnDelimiter="_x0009_" DTS:ColumnType="Delimited" DTS:CreationName="" DTS:DataType="3" DTS:DTSID="{C8E3B06E-26CA-42CC-8493-99A4039920CB}" DTS:ObjectName="Number" DTS:TextQualified="True">
             </DTS:FlatFileColumn>
-            <DTS:FlatFileColumn DTS:ColumnDelimiter="_x0009_" DTS:ColumnType="Delimited" DTS:CreationName="" DTS:DataType="129" DTS:DTSID="{182630FA-AC8F-4D64-9E5C-1CFF84E2951A}" DTS:MaximumWidth="60" DTS:ObjectName="Name" DTS:TextQualified="True">
+            <DTS:FlatFileColumn DTS:ColumnDelimiter="_x0009_" DTS:ColumnType="Delimited" DTS:CreationName="" DTS:DataType="129" DTS:DTSID="{4C576985-FE53-41CF-B00A-6506792C1E72}" DTS:MaximumWidth="60" DTS:ObjectName="Name" DTS:TextQualified="True">
             </DTS:FlatFileColumn>
-            <DTS:FlatFileColumn DTS:ColumnDelimiter="_x0009_" DTS:ColumnType="Delimited" DTS:CreationName="" DTS:DataType="129" DTS:DTSID="{CA9845A2-5E82-49A9-AE24-D88CBF73F69C}" DTS:MaximumWidth="60" DTS:ObjectName="Telephone" DTS:TextQualified="True">
+            <DTS:FlatFileColumn DTS:ColumnDelimiter="_x0009_" DTS:ColumnType="Delimited" DTS:CreationName="" DTS:DataType="129" DTS:DTSID="{580B34BD-90B7-4428-AF4A-2A50CE3A729D}" DTS:MaximumWidth="60" DTS:ObjectName="Telephone" DTS:TextQualified="True">
             </DTS:FlatFileColumn>
-            <DTS:FlatFileColumn DTS:ColumnDelimiter="_x0009_" DTS:ColumnType="Delimited" DTS:CreationName="" DTS:DataType="129" DTS:DTSID="{14C4D0A9-936C-43CE-8300-AF24DAA4F4D2}" DTS:MaximumWidth="200" DTS:ObjectName="Address" DTS:TextQualified="True">
+            <DTS:FlatFileColumn DTS:ColumnDelimiter="_x0009_" DTS:ColumnType="Delimited" DTS:CreationName="" DTS:DataType="129" DTS:DTSID="{3B8BC84F-BA70-4EF7-ABC7-03C06D2B163E}" DTS:MaximumWidth="200" DTS:ObjectName="Address" DTS:TextQualified="True">
             </DTS:FlatFileColumn>
-            <DTS:FlatFileColumn DTS:ColumnDelimiter="_x000D__x000A_" DTS:ColumnType="Delimited" DTS:CreationName="" DTS:DataType="133" DTS:DTSID="{C723D979-A21A-4E53-93D7-5A2086413341}" DTS:ObjectName="AddressDate" DTS:TextQualified="True">
+            <DTS:FlatFileColumn DTS:ColumnDelimiter="_x000D__x000A_" DTS:ColumnType="Delimited" DTS:CreationName="" DTS:DataType="133" DTS:DTSID="{C3571518-F833-4247-95A4-70168DA64551}" DTS:ObjectName="AddressDate" DTS:TextQualified="True">
             </DTS:FlatFileColumn>
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
-    <DTS:ConnectionManager DTS:CreationName="OLEDB" DTS:DTSID="{354DDC9B-7C70-42DB-BF14-9C110BD6F01A}" DTS:ObjectName="cnOLEDB_ContactsDB" DTS:refId="Package.ConnectionManagers[cnOLEDB_ContactsDB]">
+    <DTS:ConnectionManager DTS:CreationName="OLEDB" DTS:DTSID="{F061B01E-3040-4577-B455-1C438849651D}" DTS:ObjectName="cnOLEDB_ContactsDB" DTS:refId="Package.ConnectionManagers[cnOLEDB_ContactsDB]">
       <DTS:ObjectData>
-        <DTS:ConnectionManager DTS:ConnectionString="Data Source=ravipc;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;">
+        <DTS:ConnectionManager DTS:ConnectionString="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;">
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Executables>
-    <DTS:Executable DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" DTS:DTSID="{F13B0B58-5CF3-463E-A1C9-626586D8DEEE}" DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" DTS:LocaleID="-1" DTS:ObjectName="cfSQL_TruncateStaging" DTS:refId="Package\cfSQL_TruncateStaging" DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+    <DTS:Executable DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" DTS:DTSID="{83109B81-3F8C-4DB4-A894-AEA07862CC75}" DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" DTS:LocaleID="-1" DTS:ObjectName="cfSQL_TruncateStaging" DTS:refId="Package\cfSQL_TruncateStaging" DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:ObjectData>
         <SQLTask:SqlTaskData SQLTask:Connection="cnOLEDB_ContactsDB" SQLTask:SqlStatementSource="&#xA;            TRUNCATE TABLE staging.Contacts&#xA;          " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
-    <DTS:Executable DTS:CreationName="SSIS.Pipeline.3" DTS:DTSID="{0F3E42D8-9BEE-4950-A7EA-FE67E6529CE4}" DTS:ExecutableType="SSIS.Pipeline.3" DTS:LocaleID="-1" DTS:ObjectName="cfDFT_StageContacts" DTS:refId="Package\cfDFT_StageContacts" DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+    <DTS:Executable DTS:CreationName="SSIS.Pipeline.3" DTS:DTSID="{5885C3F1-FD2B-4FF0-A26D-D6D8AB04546E}" DTS:ExecutableType="SSIS.Pipeline.3" DTS:LocaleID="-1" DTS:ObjectName="cfDFT_StageContacts" DTS:refId="Package\cfDFT_StageContacts" DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:ObjectData>
         <pipeline BLOBTempStoragePath="" bufferTempStoragePath="" version="1">
           <components>
             <component componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}" contactInfo="Flat File Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1" localeId="2057" name="dfFFSRC_Contacts" refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts" usesDispositions="true" version="1">
               <connections>
-                <connection connectionManagerID="{C65B05E4-E919-4B60-8B3E-5F0691B2AFF0}:external" connectionManagerRefId="Package.ConnectionManagers[cnFlatFile_Contacts]" name="FlatFileConnection" refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Connections[FlatFileConnection]">
+                <connection connectionManagerID="{BFC591C4-2EC9-4098-97A4-E30CBDC243AD}:external" connectionManagerRefId="Package.ConnectionManagers[cnFlatFile_Contacts]" name="FlatFileConnection" refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Connections[FlatFileConnection]">
                 </connection>
               </connections>
               <outputs>
@@ -110,7 +110,7 @@
             </component>
             <component componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}" contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4" name="dfOLEDST_staging_Contacts" refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts" usesDispositions="true" version="4">
               <connections>
-                <connection connectionManagerID="{354DDC9B-7C70-42DB-BF14-9C110BD6F01A}:external" connectionManagerRefId="Package.ConnectionManagers[cnOLEDB_ContactsDB]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Connections[OleDbConnection]">
+                <connection connectionManagerID="{F061B01E-3040-4577-B455-1C438849651D}:external" connectionManagerRefId="Package.ConnectionManagers[cnOLEDB_ContactsDB]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Connections[OleDbConnection]">
                 </connection>
               </connections>
               <inputs>
@@ -177,13 +177,13 @@
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
-    <DTS:Executable DTS:CreationName="SSIS.Pipeline.3" DTS:DTSID="{D6ED6397-D1F7-4C34-B15A-9D743DCEC62F}" DTS:ExecutableType="SSIS.Pipeline.3" DTS:LocaleID="-1" DTS:ObjectName="cfDFT_LoadContacts" DTS:refId="Package\cfDFT_LoadContacts" DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+    <DTS:Executable DTS:CreationName="SSIS.Pipeline.3" DTS:DTSID="{12F71AAD-3C3B-46E9-80FB-B84DA690E290}" DTS:ExecutableType="SSIS.Pipeline.3" DTS:LocaleID="-1" DTS:ObjectName="cfDFT_LoadContacts" DTS:refId="Package\cfDFT_LoadContacts" DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:ObjectData>
         <pipeline BLOBTempStoragePath="" bufferTempStoragePath="" version="1">
           <components>
             <component componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}" contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7" name="dfOLESRC_staging_Contacts" refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts" usesDispositions="true" version="7">
               <connections>
-                <connection connectionManagerID="{354DDC9B-7C70-42DB-BF14-9C110BD6F01A}:external" connectionManagerRefId="Package.ConnectionManagers[cnOLEDB_ContactsDB]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Connections[OleDbConnection]">
+                <connection connectionManagerID="{F061B01E-3040-4577-B455-1C438849651D}:external" connectionManagerRefId="Package.ConnectionManagers[cnOLEDB_ContactsDB]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Connections[OleDbConnection]">
                 </connection>
               </connections>
               <outputs>
@@ -294,15 +294,186 @@
                 </property>
               </properties>
             </component>
+            <component componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}" contactInfo="Conditional Split;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0" name="dfCSPL_IsDuplicate" refId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate" usesDispositions="true">
+              <inputs>
+                <input name="dfOLESRC_staging_Contacts_Output_dfCSPL_IsDuplicate" refId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate.Inputs[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDuplicate]">
+                  <externalMetadataColumns>
+                  </externalMetadataColumns>
+                  <inputColumns>
+                    <inputColumn cachedDataType="i8" cachedName="rno" lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[rno]" refId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate.Inputs[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDuplicate].Columns[rno]">
+                    </inputColumn>
+                  </inputColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output errorOrTruncationOperation="Computation" errorRowDisposition="FailComponent" exclusionGroup="1" name="duplicate" refId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate.Outputs[duplicate]" synchronousInputId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate.Inputs[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDuplicate]" truncationRowDisposition="FailComponent">
+                  <externalMetadataColumns>
+                  </externalMetadataColumns>
+                  <properties>
+                    <property containsID="true" dataType="System.String" name="Expression">#{Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[rno]} &gt; 1</property>
+                    <property containsID="true" dataType="System.String" expressionType="Notify" name="FriendlyExpression">rno &gt; 1</property>
+                    <property dataType="System.Int32" name="EvaluationOrder">0</property>
+                  </properties>
+                </output>
+                <output exclusionGroup="1" name="Default" refId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate.Outputs[Default]" synchronousInputId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate.Inputs[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDuplicate]">
+                  <externalMetadataColumns>
+                  </externalMetadataColumns>
+                  <properties>
+                    <property dataType="System.Boolean" name="IsDefaultOut">true</property>
+                  </properties>
+                </output>
+                <output exclusionGroup="1" isErrorOut="true" name="Error" refId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate.Outputs[Error]" synchronousInputId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate.Inputs[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDuplicate]">
+                  <externalMetadataColumns>
+                  </externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn dataType="i4" lineageId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate.Outputs[Error].Columns[ErrorCode]" name="ErrorCode" refId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate.Outputs[Error].Columns[ErrorCode]" specialFlags="1">
+                    </outputColumn>
+                    <outputColumn dataType="i4" lineageId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate.Outputs[Error].Columns[ErrorColumn]" name="ErrorColumn" refId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate.Outputs[Error].Columns[ErrorColumn]" specialFlags="2">
+                    </outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+            </component>
+            <component componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}" contactInfo="Conditional Split;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0" name="dfCSPL_IsNew" refId="Package\cfDFT_LoadContacts\dfCSPL_IsNew" usesDispositions="true">
+              <inputs>
+                <input name="dfCSPL_IsDuplicate_Default_dfCSPL_IsNew" refId="Package\cfDFT_LoadContacts\dfCSPL_IsNew.Inputs[dfCSPL_IsDuplicate_Default_dfCSPL_IsNew]">
+                  <externalMetadataColumns>
+                  </externalMetadataColumns>
+                  <inputColumns>
+                    <inputColumn cachedDataType="i4" cachedName="dim_Number" lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[dim_Number]" refId="Package\cfDFT_LoadContacts\dfCSPL_IsNew.Inputs[dfCSPL_IsDuplicate_Default_dfCSPL_IsNew].Columns[dim_Number]">
+                    </inputColumn>
+                  </inputColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output errorOrTruncationOperation="Computation" errorRowDisposition="FailComponent" exclusionGroup="1" name="new" refId="Package\cfDFT_LoadContacts\dfCSPL_IsNew.Outputs[new]" synchronousInputId="Package\cfDFT_LoadContacts\dfCSPL_IsNew.Inputs[dfCSPL_IsDuplicate_Default_dfCSPL_IsNew]" truncationRowDisposition="FailComponent">
+                  <externalMetadataColumns>
+                  </externalMetadataColumns>
+                  <properties>
+                    <property containsID="true" dataType="System.String" name="Expression">#{Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[dim_Number]} == NULL(DT_I4)</property>
+                    <property containsID="true" dataType="System.String" expressionType="Notify" name="FriendlyExpression">dim_Number == NULL(DT_I4)</property>
+                    <property dataType="System.Int32" name="EvaluationOrder">0</property>
+                  </properties>
+                </output>
+                <output exclusionGroup="1" name="Default" refId="Package\cfDFT_LoadContacts\dfCSPL_IsNew.Outputs[Default]" synchronousInputId="Package\cfDFT_LoadContacts\dfCSPL_IsNew.Inputs[dfCSPL_IsDuplicate_Default_dfCSPL_IsNew]">
+                  <externalMetadataColumns>
+                  </externalMetadataColumns>
+                  <properties>
+                    <property dataType="System.Boolean" name="IsDefaultOut">true</property>
+                  </properties>
+                </output>
+                <output exclusionGroup="1" isErrorOut="true" name="Error" refId="Package\cfDFT_LoadContacts\dfCSPL_IsNew.Outputs[Error]" synchronousInputId="Package\cfDFT_LoadContacts\dfCSPL_IsNew.Inputs[dfCSPL_IsDuplicate_Default_dfCSPL_IsNew]">
+                  <externalMetadataColumns>
+                  </externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn dataType="i4" lineageId="Package\cfDFT_LoadContacts\dfCSPL_IsNew.Outputs[Error].Columns[ErrorCode]" name="ErrorCode" refId="Package\cfDFT_LoadContacts\dfCSPL_IsNew.Outputs[Error].Columns[ErrorCode]" specialFlags="1">
+                    </outputColumn>
+                    <outputColumn dataType="i4" lineageId="Package\cfDFT_LoadContacts\dfCSPL_IsNew.Outputs[Error].Columns[ErrorColumn]" name="ErrorColumn" refId="Package\cfDFT_LoadContacts\dfCSPL_IsNew.Outputs[Error].Columns[ErrorColumn]" specialFlags="2">
+                    </outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+            </component>
+            <component componentClassID="{EC139FBC-694E-490B-8EA7-35690FB0F445}" contactInfo="Multicast;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0" name="dfMLT_Dimension" refId="Package\cfDFT_LoadContacts\dfMLT_Dimension">
+              <inputs>
+                <input name="dfCSPL_IsNew_new_dfMLT_Dimension" refId="Package\cfDFT_LoadContacts\dfMLT_Dimension.Inputs[dfCSPL_IsNew_new_dfMLT_Dimension]">
+                  <externalMetadataColumns>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output deleteOutputOnPathDetached="true" name="contacts" refId="Package\cfDFT_LoadContacts\dfMLT_Dimension.Outputs[contacts]" synchronousInputId="Package\cfDFT_LoadContacts\dfMLT_Dimension.Inputs[dfCSPL_IsNew_new_dfMLT_Dimension]">
+                  <externalMetadataColumns>
+                  </externalMetadataColumns>
+                </output>
+                <output dangling="true" deleteOutputOnPathDetached="true" name="telephone" refId="Package\cfDFT_LoadContacts\dfMLT_Dimension.Outputs[telephone]" synchronousInputId="Package\cfDFT_LoadContacts\dfMLT_Dimension.Inputs[dfCSPL_IsNew_new_dfMLT_Dimension]">
+                  <externalMetadataColumns>
+                  </externalMetadataColumns>
+                </output>
+                <output dangling="true" deleteOutputOnPathDetached="true" name="Output3" refId="Package\cfDFT_LoadContacts\dfMLT_Dimension.Outputs[Output3]" synchronousInputId="Package\cfDFT_LoadContacts\dfMLT_Dimension.Inputs[dfCSPL_IsNew_new_dfMLT_Dimension]">
+                  <externalMetadataColumns>
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}" contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4" name="dfOLEDST_dim_Contacts" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts" usesDispositions="true" version="4">
+              <connections>
+                <connection connectionManagerID="{F061B01E-3040-4577-B455-1C438849651D}:external" connectionManagerRefId="Package.ConnectionManagers[cnOLEDB_ContactsDB]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Connections[OleDbConnection]">
+                </connection>
+              </connections>
+              <inputs>
+                <input errorOrTruncationOperation="Insert" errorRowDisposition="FailComponent" hasSideEffects="true" name="dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts]">
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn dataType="i4" name="key_Contact" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts].ExternalColumns[key_Contact]">
+                    </externalMetadataColumn>
+                    <externalMetadataColumn dataType="i4" name="id_Number" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts].ExternalColumns[id_Number]">
+                    </externalMetadataColumn>
+                    <externalMetadataColumn codePage="1252" dataType="str" length="60" name="Name" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts].ExternalColumns[Name]">
+                    </externalMetadataColumn>
+                    <externalMetadataColumn codePage="1252" dataType="str" length="200" name="Address" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts].ExternalColumns[Address]">
+                    </externalMetadataColumn>
+                    <externalMetadataColumn dataType="dbDate" name="AddressDate" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts].ExternalColumns[AddressDate]">
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                  <inputColumns>
+                    <inputColumn cachedDataType="i4" cachedName="stg_Number" externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts].ExternalColumns[id_Number]" lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Number]" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts].Columns[stg_Number]">
+                    </inputColumn>
+                    <inputColumn cachedCodepage="1252" cachedDataType="str" cachedLength="60" cachedName="stg_Name" externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts].ExternalColumns[Name]" lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Name]" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts].Columns[stg_Name]">
+                    </inputColumn>
+                    <inputColumn cachedCodepage="1252" cachedDataType="str" cachedLength="200" cachedName="stg_Address" externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts].ExternalColumns[Address]" lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Address]" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts].Columns[stg_Address]">
+                    </inputColumn>
+                    <inputColumn cachedDataType="dbDate" cachedName="stg_AddressDate" externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts].ExternalColumns[AddressDate]" lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_AddressDate]" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts].Columns[stg_AddressDate]">
+                    </inputColumn>
+                  </inputColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output exclusionGroup="1" isErrorOut="true" name="Error" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Outputs[Error]" synchronousInputId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts]">
+                  <externalMetadataColumns>
+                  </externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn dataType="i4" lineageId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Outputs[Error].Columns[ErrorCode]" name="ErrorCode" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Outputs[Error].Columns[ErrorCode]" specialFlags="1">
+                    </outputColumn>
+                    <outputColumn dataType="i4" lineageId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Outputs[Error].Columns[ErrorColumn]" name="ErrorColumn" refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Outputs[Error].Columns[ErrorColumn]" specialFlags="2">
+                    </outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">dim_Contacts</property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable">
+                </property>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+                </property>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode">3</property>
+                <property dataType="System.Boolean" description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on." name="FastLoadKeepIdentity">false</property>
+                <property dataType="System.Boolean" description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on." name="FastLoadKeepNulls">false</property>
+                <property dataType="System.String" description="Specifies options to be used with fast load.  Applies only if fast load is turned on." name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property dataType="System.Int32" description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on." name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+            </component>
           </components>
+          <paths>
+            <path endId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate.Inputs[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDuplicate]" name="dfOLESRC_staging_Contacts_Output_dfCSPL_IsDuplicate" refId="Package\cfDFT_LoadContacts.Paths[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDuplicate]" startId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output]">
+            </path>
+            <path endId="Package\cfDFT_LoadContacts\dfCSPL_IsNew.Inputs[dfCSPL_IsDuplicate_Default_dfCSPL_IsNew]" name="dfCSPL_IsDuplicate_Default_dfCSPL_IsNew" refId="Package\cfDFT_LoadContacts.Paths[dfCSPL_IsDuplicate_Default_dfCSPL_IsNew]" startId="Package\cfDFT_LoadContacts\dfCSPL_IsDuplicate.Outputs[Default]">
+            </path>
+            <path endId="Package\cfDFT_LoadContacts\dfMLT_Dimension.Inputs[dfCSPL_IsNew_new_dfMLT_Dimension]" name="dfCSPL_IsNew_new_dfMLT_Dimension" refId="Package\cfDFT_LoadContacts.Paths[dfCSPL_IsNew_new_dfMLT_Dimension]" startId="Package\cfDFT_LoadContacts\dfCSPL_IsNew.Outputs[new]">
+            </path>
+            <path endId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts]" name="dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts" refId="Package\cfDFT_LoadContacts.Paths[dfMLT_Dimension_contacts_dfOLEDST_dim_Contacts]" startId="Package\cfDFT_LoadContacts\dfMLT_Dimension.Outputs[contacts]">
+            </path>
+          </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint DTS:CreationName="" DTS:DTSID="{98A64E5F-DEBA-43AD-8266-82BF482E73B9}" DTS:From="Package\cfSQL_TruncateStaging" DTS:LogicalAnd="True" DTS:ObjectName="Constraint_cfSQL_TruncateStaging_To_cfDFT_StageContacts" DTS:refId="Package.PrecedenceConstraints[Constraint_cfSQL_TruncateStaging_To_cfDFT_StageContacts]" DTS:To="Package\cfDFT_StageContacts">
+    <DTS:PrecedenceConstraint DTS:CreationName="" DTS:DTSID="{B11768AA-F9FD-4514-8530-2B660DA65C6B}" DTS:From="Package\cfSQL_TruncateStaging" DTS:LogicalAnd="True" DTS:ObjectName="Constraint_cfSQL_TruncateStaging_To_cfDFT_StageContacts" DTS:refId="Package.PrecedenceConstraints[Constraint_cfSQL_TruncateStaging_To_cfDFT_StageContacts]" DTS:To="Package\cfDFT_StageContacts">
     </DTS:PrecedenceConstraint>
-    <DTS:PrecedenceConstraint DTS:CreationName="" DTS:DTSID="{671FA011-A6D3-4547-BB72-2D4B45AB3D11}" DTS:From="Package\cfDFT_StageContacts" DTS:LogicalAnd="True" DTS:ObjectName="Constraint_cfDFT_StageContacts_To_cfDFT_LoadContacts" DTS:refId="Package.PrecedenceConstraints[Constraint_cfDFT_StageContacts_To_cfDFT_LoadContacts]" DTS:To="Package\cfDFT_LoadContacts">
+    <DTS:PrecedenceConstraint DTS:CreationName="" DTS:DTSID="{1DDA3E8A-9078-47B4-AC24-5315BA0C1CBF}" DTS:From="Package\cfDFT_StageContacts" DTS:LogicalAnd="True" DTS:ObjectName="Constraint_cfDFT_StageContacts_To_cfDFT_LoadContacts" DTS:refId="Package.PrecedenceConstraints[Constraint_cfDFT_StageContacts_To_cfDFT_LoadContacts]" DTS:To="Package\cfDFT_LoadContacts">
     </DTS:PrecedenceConstraint>
   </DTS:PrecedenceConstraints>
   <DTS:Property DTS:Name="PackageFormatVersion">6</DTS:Property>
