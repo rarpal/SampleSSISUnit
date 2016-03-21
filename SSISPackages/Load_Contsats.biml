@@ -1,0 +1,44 @@
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+  <FileFormats>
+    <FlatFileFormat Name="fmFlatFile_Contacts" IsUnicode="false" ColumnNamesInFirstDataRow="true">
+      <Columns>
+        <Column Name="Number" DataType="Int32" Delimiter="Tab"></Column>
+        <Column Name="Name" DataType="AnsiString" Length="60" Delimiter="Tab"></Column>
+        <Column Name="Telephone" DataType="AnsiString" Length="60" Delimiter="Tab"></Column>
+        <Column Name="Address" DataType="AnsiString" Length="200" Delimiter="Tab"></Column>
+        <Column Name="AddressDate" DataType="Date" Length="10" Delimiter="CRLF"></Column>
+      </Columns>
+    </FlatFileFormat>
+  </FileFormats>
+  <Connections>
+    <FlatFileConnection Name="cnFlatFile_Contacts" FilePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts_batch1.txt" FileFormat="fmFlatFile_Contacts"></FlatFileConnection>
+    <OleDbConnection Name="cnOLEDB_ContactsDB" ConnectionString="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"></OleDbConnection>
+  </Connections>
+  <Packages>
+    <Package Name="Load_Contacts" ProtectionLevel="EncryptSensitiveWithUserKey" ConstraintMode="Linear">
+      <Tasks>
+        <ExecuteSQL Name="cfSQL_TruncateStaging" ConnectionName="cnOLEDB_ContactsDB">
+          <DirectInput>
+            TRUNCATE TABLE staging.Contacts
+          </DirectInput>
+        </ExecuteSQL>
+        <Dataflow Name="cfDFT_StageContacts">
+          <Transformations>
+            <FlatFileSource Name="dfFFSRC_Contacts" ConnectionName ="cnFlatFile_Contacts"></FlatFileSource>
+            <OleDbDestination Name="dfOLEDST_staging_Contacts" ConnectionName="cnOLEDB_ContactsDB" UseFastLoadIfAvailable="true">
+              <ExternalTableOutput Table="staging.Contacts"></ExternalTableOutput>
+              <Columns>
+                <Column SourceColumn="Number" TargetColumn="Number"></Column>
+                <Column SourceColumn="Name" TargetColumn="Name"></Column>
+                <Column SourceColumn="Telephone" TargetColumn="Telephone"></Column>
+                <Column SourceColumn="Address" TargetColumn="Address"></Column>
+                <Column SourceColumn="AddressDate" TargetColumn="AddressDate"></Column>
+              </Columns>
+            </OleDbDestination>
+          </Transformations>
+        </Dataflow>
+        
+      </Tasks>
+    </Package>
+  </Packages>
+</Biml>

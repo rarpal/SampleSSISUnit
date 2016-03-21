@@ -9,6 +9,8 @@ namespace ConsoleApplication1
 {
     class Program
     {
+        static string resultvalue;
+        
         static void Main(string[] args)
         {
             SsisTestSuite testSuite = new SsisTestSuite(@"C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\ssisUnitExample.ssisUnit");
@@ -16,9 +18,9 @@ namespace ConsoleApplication1
             testSuite.CommandCompleted += TestSuiteCommandCompleted;
             Test test = testSuite.Tests["Get Table Count"];
             Context context = testSuite.CreateContext();
-            var target = new SqlCommand(testSuite);
+            //var target = new SqlCommand(testSuite);
             bool rs = test.Execute(context);
-            TreeItem<Log> ti = context.Log;
+            //TreeItem<Log> ti = context.Log;
             //testSuite.Execute();
 
             Console.ReadKey();
@@ -28,13 +30,14 @@ namespace ConsoleApplication1
         {
             if (e.AssertName == "Verify Table Count")
             {
+                resultvalue = e.TestExecResult.TestResultMsg;
                 if (e.TestExecResult.TestPassed)
                 {
-                    Console.WriteLine(e.AssertName + " Passed");
+                    Console.WriteLine(e.AssertName + " Passed" + " with value :" + resultvalue);
                 }
                 else
                 {
-                    Console.WriteLine(e.AssertName + " Failed");
+                    Console.WriteLine(e.AssertName + " Failed" + " with value :" + resultvalue);
                 }
             }
         }

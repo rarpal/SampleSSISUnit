@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="4270575f-3644-4967-bde4-fd8fb8499d51" ChangeDateTime="03/20/2016 02:32:35">
+    <Property Name="ElementName" Value="[dbo].[dim_Contacts].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[dim_Contacts]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="key_Contact" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6f7162b6-a683-4803-bd99-609b14b168b2" ChangeDateTime="03/20/2016 03:02:40">
+    <Property Name="ElementName" Value="[dbo].[dim_Contacts].[id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[dim_Contacts]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id_ContactNumber" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b34c68f2-17ee-4bb2-b721-7714b070140f" ChangeDateTime="03/20/2016 03:04:22">
+    <Property Name="ElementName" Value="[dbo].[dim_Contacts].[id_ContactNumber]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[dim_Contacts]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id_Number" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d59b8e55-a90e-414c-bbe1-1ddd50aa114b" ChangeDateTime="03/20/2016 03:12:34">
+    <Property Name="ElementName" Value="[dbo].[dim_Contacts].[niIX_dim_Contacts_Column]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[dbo].[dim_Contacts]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[ni_]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2711ef1f-584c-4c77-adf8-c332aac21e97" ChangeDateTime="03/20/2016 03:13:46">
+    <Property Name="ElementName" Value="[dbo].[dim_Contacts].[ni_]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[dbo].[dim_Contacts]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[ni_dim_Contacts_id_Number]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4a10f8bc-cff8-4220-b09f-9e3941f5967a" ChangeDateTime="03/20/2016 03:20:19">
+    <Property Name="ElementName" Value="[dbo].[dim_Contacts].[current]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[dim_Contacts]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="is_Current" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c408b8e4-f18a-453a-836d-5cc63986f1b9" ChangeDateTime="03/20/2016 12:29:25">
+    <Property Name="ElementName" Value="[dbo].[staging_Contacts].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[staging_Contacts]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Number" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="252cccb4-04c0-4092-9daf-e2999ca841f0" ChangeDateTime="03/20/2016 12:31:20">
+    <Property Name="ElementName" Value="[dbo].[staging_Contacts].[AddressData]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[staging_Contacts]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AddressDate" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="002303c3-e79a-4f9e-8752-a65b37d53db1" ChangeDateTime="03/20/2016 19:31:53">
+    <Property Name="ElementName" Value="[dbo].[u_dim_ContactTelephone].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[u_dim_ContactTelephone]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="key_Contact" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d819bd41-9a40-4485-959e-26b42d7daaf4" ChangeDateTime="03/20/2016 19:40:07">
+    <Property Name="ElementName" Value="[dbo].[dim_ContactTelephone].[ni_dim_ContactTelephone_TelephoneNumber]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[dbo].[dim_ContactTelephone]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[ni_dim_ContactTelephone_key_Contact]" />
+  </Operation>
+</Operations>

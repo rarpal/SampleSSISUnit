@@ -11,16 +11,16 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{77C894DA-744A-4853-AEA8-629DF905C3D4}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{D85C7B20-371C-4281-AB61-9C6F23632C50}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[localhost.AdventureWorks]"
+      DTS:refId="Package.ConnectionManagers[AdventureWorks]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{B55814A1-935B-4E6D-87D4-4B76138FCEEA}"
-      DTS:ObjectName="localhost.AdventureWorks">
+      DTS:ObjectName="AdventureWorks">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=paldesk;Initial Catalog=AdventureWorks2012;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />

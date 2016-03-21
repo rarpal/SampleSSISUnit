@@ -50,7 +50,7 @@ namespace SSISUnitTests
             testSuite.AssertCompleted += TestSuiteAssertCompleted;
             isTestPassed = true;
             bool rs = test.Execute(context);
-            
+            Assert.AreEqual<bool>(true, isTestPassed);
         }
 
         public void TestSuiteAssertCompleted(object sender, AssertCompletedEventArgs e)
@@ -59,7 +59,7 @@ namespace SSISUnitTests
             {
                 testResult = e.TestExecResult;
                 isTestPassed = e.TestExecResult.TestPassed;
-                Assert.AreEqual(true, isTestPassed);
+                //Assert.AreEqual(true, isTestPassed, "not passed");
             }
         }
     }
