@@ -11,8 +11,8 @@
     </FlatFileFormat>
   </FileFormats>
   <Connections>
-    <FlatFileConnection Name="cnFlatFile_Contacts" FilePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts_batch1.txt" FileFormat="fmFlatFile_Contacts"></FlatFileConnection>
-    <OleDbConnection Name="cnOLEDB_ContactsDB" ConnectionString="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"></OleDbConnection>
+    <FlatFileConnection Name="cnFlatFile_Contacts" FilePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts_batch2.txt" FileFormat="fmFlatFile_Contacts"></FlatFileConnection>
+    <OleDbConnection Name="cnOLEDB_ContactsDB" ConnectionString="Data Source=ravipc;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"></OleDbConnection>
   </Connections>
   <Packages>
     <Package Name="Load_Contacts" ProtectionLevel="EncryptSensitiveWithUserKey" ConstraintMode="Linear">
@@ -42,42 +42,43 @@
             <OleDbSource Name="dfOLESRC_staging_Contacts" ConnectionName="cnOLEDB_ContactsDB">
               <DirectInput>
                 SELECT
-                 stg.Number
-                ,stg.[Name]
-                ,stg.Telephone
-                ,stg.[Address]
-                ,stg.AddressDate
-                ROW_NUMBER() OVER (PARTITION BY stg.Number ORDER BY stg.AddressDate DESC) rno
+                 stg.Number stg_Number
+                ,stg.Name stg_Name
+                ,stg.Telephone stg_Telephone
+                ,stg.Address stg_Address
+                ,stg.AddressDate stg_AddressDate
+                ,ROW_NUMBER() OVER (PARTITION BY stg.Number ORDER BY stg.AddressDate DESC) rno
                 FROM staging.Contacts stg
               </DirectInput>
             </OleDbSource>
-            <ConditionalSplit Name="dfCSPL_IsDuplicate">
+            <ConditionalSplit Name="dfCSPL_IsDeDup">
               <OutputPaths>
-                <OutputPath Name="duplicate">
-                  <Expression>rno > 1</Expression>
+                <OutputPath Name="dedup">
+                  <Expression>rno == 1</Expression>
                 </OutputPath>
               </OutputPaths>
             </ConditionalSplit>
-            <Lookup Name="dfLKP_Existing" OleDbConnectionName="cnOLEDB_ContactsDB">
+            <Lookup Name="dfLKP_Existing" OleDbConnectionName="cnOLEDB_ContactsDB" NoMatchBehavior="RedirectRowsToNoMatchOutput">
+              <InputPath OutputPathName="dfCSPL_IsDeDup.dedup"></InputPath>
               <DirectInput>
                 SELECT
                  dim.key_Contact 
                 ,dim.id_Number
-                ,dim.[Name],
-                ,dim.Telephone
-                ,dim.[Address]
-                ,dim.AddressDate
+                ,dim.Name dim_Name
+                ,dim.Telephone dim_Telephone
+                ,dim.Address dim_Address
+                ,dim.AddressDate dim_AddressDate
                 FROM dim_Contacts dim
               </DirectInput>
               <Inputs>
-                <Column SourceColumn ="Number" TargetColumn="id_Number"></Column>
+                <Column SourceColumn ="stg_Number" TargetColumn="id_Number"></Column>
               </Inputs>
               <Outputs>
                 <Column SourceColumn="key_Contact"></Column>
-                <Column SourceColumn="Name"></Column>
-                <Column SourceColumn="Telephone"></Column>
-                <Column SourceColumn="Address"></Column>
-                <Column SourceColumn="AddressDate"></Column>
+                <Column SourceColumn="dim_Name"></Column>
+                <Column SourceColumn="dim_Telephone"></Column>
+                <Column SourceColumn="dim_Address"></Column>
+                <Column SourceColumn="dim_AddressDate"></Column>
               </Outputs>
             </Lookup>
             <OleDbDestination Name="dfOLEDST_dim_Contacts" ConnectionName="cnOLEDB_ContactsDB" UseFastLoadIfAvailable="true">
@@ -91,6 +92,37 @@
                 <Column SourceColumn="stg_AddressDate" TargetColumn="AddressDate"></Column>
               </Columns>
             </OleDbDestination>
+            <ConditionalSplit Name="dfCSPL_HasChanged">
+              <InputPath OutputPathName="dfLKP_Existing.Match"></InputPath>
+              <OutputPaths>
+                <OutputPath Name="changed">
+                  <Expression>
+                    stg_Name != dim_Name ||
+                    stg_Telephone != dim_Telephone ||
+                    stg_Address != dim_Address ||
+                    stg_AddressDate != dim_AddressDate
+                  </Expression>
+                </OutputPath>
+              </OutputPaths>
+            </ConditionalSplit>
+            <OleDbCommand Name="dfCMD_dim_Contacts" ConnectionName="cnOLEDB_ContactsDB">
+              <InputPath OutputPathName="dfCSPL_HasChanged.changed"></InputPath>
+              <DirectInput>
+                UPDATE dim_Contacts SET
+                 Name = ?
+                ,Telephone = ?
+                ,Address = ?
+                ,AddressDate = ?
+                WHERE key_Contact = ?
+              </DirectInput>
+              <Parameters>
+                <Parameter SourceColumn="stg_Name" TargetColumn="Param_0" DataType="String" Length="60"></Parameter>
+                <Parameter SourceColumn="stg_Telephone" TargetColumn="Param_1" DataType="String" Length="60"></Parameter>
+                <Parameter SourceColumn="stg_Address" TargetColumn="Param_2" DataType="String" Length="200"></Parameter>
+                <Parameter SourceColumn="stg_AddressDate" TargetColumn="Param_3" DataType="Date" Length="0"></Parameter>
+                <Parameter SourceColumn="key_Contact" TargetColumn="Param_4" DataType="Int32" Length="0"></Parameter>
+              </Parameters>
+            </OleDbCommand>
           </Transformations>
         </Dataflow>
       </Tasks>

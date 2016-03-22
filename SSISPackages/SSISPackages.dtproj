@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">PALBOOK3</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATGtwsDIH0kSr2BtOLLwiDgAAAAACAAAAAAAQZgAAAAEAACAAAADl+nx/FcnvZ19m1ESgvrMXeHma6msTFvjmXuAQqj73tAAAAAAOgAAAAAIAACAAAADlz39eOJ1CvOlkODm5xjj2c+eIoXnVn5bgh5CRpqeG9ZAAAACrCYKnkGG8ckjfkplGsYqbA1VbUDC6wBKS351/8z5NOcyuUUxa4901eOljixgIIt7I3M6KbZBnnXA7vvUkwuHgUImPzhv3/LVo5tRn3mzDqCDFqfIrIwHeVBjDOjkmjkM6oyxS7o2o7GpXKInp2F+qS9585d3TWi5yWnbCNAaJsbILPQxDsSGJYDED7zoSSyxAAAAA+MBJ+bQjXI8XveHqcSTCvrlVdKM/yVyqtiRaQKDuDoH35ar2wZro3xI217aU6y7DGecoeZ95d9oyQX69M2tTSQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANi4R5dx/6EODuSWePaC9mAAAAAACAAAAAAADZgAAwAAAABAAAACrQg1kzpZvfT9qvIHlbU3fAAAAAASAAACgAAAAEAAAAFyQLVBUOX7VzCDQqikdwhuIAAAATGMTEjx00NARI3kH/D3mLxpYOTi2kM8GMAw+lfslYZjGN78/9wmknJklO5E1y8bgpJLhr93Dekucs5/dGIDrRzqPNO5k8hqFIOgBUDic1zIqW0rkjJO+BE7iCJgxlrhCd957bIVRV425R8/yUFQGTn/e+zJrgd88+ubxdG8X9EroTS3K9ikl7xQAAAC5ki0FRfvEhipUYqSL1ur7DAWhUQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -145,18 +145,18 @@
             </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="Load_Contacts.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{BED0F7BE-1887-4423-90D0-E339196A1283}</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{D891C800-6128-4F76-B3B0-F6DFBC0D6612}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">Load_Contacts</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">3</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{C37D4C13-EAD0-4729-8518-7D50C834160D}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{62551169-895A-4876-A73C-91980D0E7339}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
                 <SSIS:Parameter SSIS:Name="CM.cnFlatFile_Contacts.AlwaysCheckForRowDelimiters">
@@ -185,7 +185,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">1252</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">65001</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -200,7 +200,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">true</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -215,7 +215,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts_batch2.txt</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -341,7 +341,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.cnOLEDB_staging_Contacts.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.cnOLEDB_ContactsDB.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -352,11 +352,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=ravipc;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.cnOLEDB_staging_Contacts.InitialCatalog">
+                <SSIS:Parameter SSIS:Name="CM.cnOLEDB_ContactsDB.InitialCatalog">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -371,7 +371,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.cnOLEDB_staging_Contacts.Password">
+                <SSIS:Parameter SSIS:Name="CM.cnOLEDB_ContactsDB.Password">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -385,7 +385,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.cnOLEDB_staging_Contacts.RetainSameConnection">
+                <SSIS:Parameter SSIS:Name="CM.cnOLEDB_ContactsDB.RetainSameConnection">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -400,7 +400,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.cnOLEDB_staging_Contacts.ServerName">
+                <SSIS:Parameter SSIS:Name="CM.cnOLEDB_ContactsDB.ServerName">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -411,11 +411,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">paldesk</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">ravipc</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.cnOLEDB_staging_Contacts.UserName">
+                <SSIS:Parameter SSIS:Name="CM.cnOLEDB_ContactsDB.UserName">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
