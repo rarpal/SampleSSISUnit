@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TestSuite xmlns="http://tempuri.org/SsisUnit.xsd">
-  <ConnectionList><Connection name="DumpDB" connection="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" connectionType="ConnectionString" invariantType="" /></ConnectionList>
-  <PackageList><Package name="Load_Contacts" packagePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISPackages\Load_Contacts.dtsx" server="" storageType="FileSystem" /></PackageList>
+  <ConnectionList>
+    <Connection name="DumpDB" connection="Data Source=ravipc;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" connectionType="ConnectionString" invariantType="" />
+  </ConnectionList>
+  <PackageList>
+    <Package name="Load_Contacts" packagePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISPackages\Load_Contacts.dtsx" storageType="FileSystem" />
+  </PackageList>
   <DatasetList />
   <TestSuiteSetup />
   <Setup />
@@ -9,13 +13,26 @@
     <Test name="TestPackage" package="Load_Contacts" task="Load_Contacts" taskResult="Success" />
     <Test name="TestBatch1Staging" package="Load_Contacts" task="cfDFT_StageContacts" taskResult="Success">
       <TestSetup>
-        <SqlCommand name="" connectionRef="DumpDB" returnsValue="false">
+        <SqlCommand name="CmdClearStaging" connectionRef="DumpDB" returnsValue="false">
           TRUNCATE TABLE staging.Contacts
         </SqlCommand>
       </TestSetup>
-      <Assert name="AssertStagingContacts" expectedResult="4" testBefore="false" expression="false">
-        <SqlCommand name="" connectionRef="DumpDB" returnsValue="false">
+      <Assert name="AssertStagingContacts" expectedResult="6" testBefore="false" expression="false">
+        <SqlCommand name="CmdCountStagingContacts" connectionRef="DumpDB" returnsValue="true">
           SELECT COUNT(*) FROM staging.Contacts
+        </SqlCommand>
+      </Assert>
+    </Test>
+    <Test name="TestBatch1NewContacts" package="Load_Contacts" task="Load_Contacts" taskResult="Success">
+      <TestSetup>
+        <FileCommand name="CmdCopyBatch1" operation="Copy" sourcePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts_batch1.txt" targetPath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts.txt" />
+        <SqlCommand name ="CmdCleardimContacts" connectionRef="DumpDB" returnValue="false">
+          TRUNCATE TABLE dim_Contacts
+        </SqlCommand>
+      </TestSetup>
+      <Assert name="AssertdimContacts" expectedResult="4" testBefore="false" expression="false">
+        <SqlCommand name="CmdCountdimContacts" connectionRef="DumpDB" returnsValue="true">
+          SELECT COUNT(*) FROM dim_Contacts
         </SqlCommand>
       </Assert>
     </Test>

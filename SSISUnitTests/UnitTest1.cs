@@ -39,27 +39,12 @@ namespace SSISUnitTests
         //    Assert.AreEqual(80, result);
         //}
 
-        [TestMethod]
-        public void TestMethod2()
-        {
-            testSuite = new SsisTestSuite(@"C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\ssisUnitExample.ssisUnit");
-            //testFile = UnpackToFile("SSISUnitTests.ssisUnitExample.ssisUnit");
-            //testSuite = new SsisTestSuite(testFile);
-            test = testSuite.Tests["Get Table Count"];
-            context = testSuite.CreateContext();
-            testSuite.AssertCompleted += TestSuiteAssertCompleted;
-            isTestPassed = true;
-            bool rs = test.Execute(context);
-            Assert.AreEqual<bool>(true, isTestPassed);
-        }
-
         public void TestSuiteAssertCompleted(object sender, AssertCompletedEventArgs e)
         {
-            if (e.AssertName == "Verify Table Count")
+            if (e.AssertName != null)
             {
                 testResult = e.TestExecResult;
                 isTestPassed = e.TestExecResult.TestPassed;
-                //Assert.AreEqual(true, isTestPassed, "not passed");
             }
         }
 
@@ -71,6 +56,33 @@ namespace SSISUnitTests
             context = testSuite.CreateContext();
             bool rs = test.Execute(context);
             Assert.AreEqual<bool>(true, rs);
+        }
+
+        [TestMethod]
+        public void TestBatch1Staging()
+        {
+            testSuite = new SsisTestSuite(@"C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\ssisUnitExample.ssisUnit");
+            test = testSuite.Tests["TestBatch1Staging"];
+            testSuite.AssertCompleted += TestSuiteAssertCompleted;
+            isTestPassed = false;
+            context = testSuite.CreateContext();
+            bool rs = test.Execute(context);
+            Assert.AreEqual<bool>(true, isTestPassed);
+            testSuite.AssertCompleted -= TestSuiteAssertCompleted;
+        }
+
+        [TestMethod]
+        public void TestBatch1NewRecords()
+        {
+            testSuite = new SsisTestSuite(@"C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\ssisUnitExample.ssisUnit");
+            test = testSuite.Tests["TestBatch1NewContacts"];
+            testSuite.AssertCompleted += TestSuiteAssertCompleted;
+            isTestPassed = false;
+            context = testSuite.CreateContext();
+            bool rs = test.Execute(context);
+            Assert.AreEqual<bool>(true, isTestPassed);
+            testSuite.AssertCompleted -= TestSuiteAssertCompleted;
+
         }
 
     }

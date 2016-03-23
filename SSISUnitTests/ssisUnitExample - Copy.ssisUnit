@@ -1,24 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TestSuite xmlns="http://tempuri.org/SsisUnit.xsd">
-	<ConnectionList>
-		<Connection name="DumpDB" connection="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" connectionType="ConnectionString"/>
-	</ConnectionList>
-	<PackageList>
-		<Package name="Load_Contacts" packagePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISPackages\Load_Contacts.dtsx" storageType="FileSystem"/>
-	</PackageList>
-	<TestSuiteSetup>
-	</TestSuiteSetup>
-	<Setup>
-	</Setup>
-	<Tests>
-		<Test name="Get Table Count" package="Package1" task="Get Table Count">
-			<Assert name="Verify Table Count" expectedResult="(int)result==71" testBefore="false" expression="true">
-				<VariableCommand operation="Get" name="tableCount" value=""/>
-			</Assert>
-		</Test>
-	</Tests>
-	<Teardown>
-	</Teardown>
-	<TestSuiteTeardown>
-	</TestSuiteTeardown>
+  <ConnectionList><Connection name="DumpDB" connection="Data Source=ravipc;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" connectionType="ConnectionString" invariantType="" /></ConnectionList>
+  <PackageList><Package name="Load_Contacts" packagePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISPackages\Load_Contacts.dtsx" server="" storageType="FileSystem" /></PackageList>
+  <DatasetList />
+  <TestSuiteSetup />
+  <Setup />
+  <Tests>
+    <Test name="TestPackage" package="Load_Contacts" task="Load_Contacts" taskResult="Success" />
+    <Test name="TestBatch1Staging" package="Load_Contacts" task="cfDFT_StageContacts" taskResult="Success">
+      <TestSetup>
+        <SqlCommand name="CmdClearStaging" connectionRef="DumpDB" returnsValue="false">
+          TRUNCATE TABLE staging.Contacts
+        </SqlCommand>
+      </TestSetup>
+      <Assert name="AssertStagingContacts" expectedResult="7" testBefore="false" expression="false">
+        <SqlCommand name="CmdCountStaging" connectionRef="DumpDB" returnsValue="true">
+          SELECT COUNT(*) FROM staging.Contacts
+        </SqlCommand>
+      </Assert>
+    </Test>
+    <Test name="TestBatch1NewRecords" package="Load_Contacts" task="Load_Contacts" taskResult="Success">
+      <Testsetup>
+
+
+      </Testsetup>
+    </Test>
+  </Tests>
+  <Teardown />
+  <TestSuiteTeardown />
 </TestSuite>

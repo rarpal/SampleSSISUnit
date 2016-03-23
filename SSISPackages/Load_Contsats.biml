@@ -12,7 +12,7 @@
   </FileFormats>
   <Connections>
     <FlatFileConnection Name="cnFlatFile_Contacts" FilePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts.txt" FileFormat="fmFlatFile_Contacts"></FlatFileConnection>
-    <OleDbConnection Name="cnOLEDB_ContactsDB" ConnectionString="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"></OleDbConnection>
+    <OleDbConnection Name="cnOLEDB_ContactsDB" ConnectionString="Data Source=ravipc;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"></OleDbConnection>
   </Connections>
   <Packages>
     <Package Name="Load_Contacts" ProtectionLevel="EncryptSensitiveWithUserKey" ConstraintMode="Linear">
