@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="3/22/2016 11:57:41 AM"
+  DTS:CreationDate="3/22/2016 9:40:52 PM"
   DTS:CreationName="SSIS.Package.3"
-  DTS:CreatorComputerName="RAVIPC"
+  DTS:CreatorComputerName="PALBOOK3"
   DTS:CreatorName="Ravi"
-  DTS:DTSID="{C3F76C5B-2319-46E3-AE65-5DD34986D54C}"
+  DTS:DTSID="{F75629FA-C41C-4EE6-9307-DC31AC1E583D}"
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="11.0.6020.0"
   DTS:LocaleID="2057"
   DTS:ObjectName="Load_Contacts"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{5018F1BC-8308-450F-80DF-F6EF36B8FED6}"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{C23A7C43-0F76-4DE9-84C9-703B6036D3F9}"
   DTS:VersionMajor="0">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
@@ -19,7 +19,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[cnFlatFile_Contacts]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{54D1CC07-3A63-44C8-91E2-F755D02AF541}"
+      DTS:DTSID="{90FB9510-36EF-4BE4-B8F6-B5D7B19B97DA}"
       DTS:ObjectName="cnFlatFile_Contacts">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -30,7 +30,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts_batch2.txt">
+          DTS:ConnectionString="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -38,7 +38,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Number"
-              DTS:DTSID="{521120FD-10CB-4B5C-A6F2-7D6A119687E6}"
+              DTS:DTSID="{5A65CB5B-98D2-4627-AF38-A33F87D661B8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -47,7 +47,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Name"
-              DTS:DTSID="{28CCE25F-F52F-4FC2-9B29-FC50BF9693EE}"
+              DTS:DTSID="{3BB2F645-E4D9-4867-AE9A-37BBC03525C9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -56,7 +56,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Telephone"
-              DTS:DTSID="{69F0B9C2-86CA-431E-A69C-4A84F1BA4F23}"
+              DTS:DTSID="{426FD936-6F66-4E74-BC7A-C6612429935F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -65,7 +65,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Address"
-              DTS:DTSID="{47EF3FAB-B7A6-427A-905C-25D9FAF8250A}"
+              DTS:DTSID="{345C99FB-5C1B-4D3F-B6A2-E5C721A9809A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -73,7 +73,7 @@
               DTS:DataType="133"
               DTS:TextQualified="True"
               DTS:ObjectName="AddressDate"
-              DTS:DTSID="{F9661699-9A38-4440-8A6B-EAAC847488C4}"
+              DTS:DTSID="{E356A35E-A38A-4D0F-B27E-9E347A45D079}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -82,11 +82,11 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[cnOLEDB_ContactsDB]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{09AB47EB-040F-4EF6-ADF5-CF831A204593}"
+      DTS:DTSID="{E55525DB-34E1-48E4-9873-D2DB937628E1}"
       DTS:ObjectName="cnOLEDB_ContactsDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=ravipc;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -95,7 +95,7 @@
     <DTS:Executable
       DTS:refId="Package\cfDFT_LoadContacts"
       DTS:CreationName="SSIS.Pipeline.3"
-      DTS:DTSID="{B7BF8C02-71EE-4031-B7D2-3C2F4393052E}"
+      DTS:DTSID="{6DF5EA0A-E07F-4D44-8BA8-BF8ADCCA14C8}"
       DTS:ExecutableType="SSIS.Pipeline.3"
       DTS:LocaleID="-1"
       DTS:ObjectName="cfDFT_LoadContacts"
@@ -194,8 +194,7 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].ExternalColumns[Param_0]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       length="60"
                       name="Param_0">
                       <properties>
@@ -207,8 +206,7 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].ExternalColumns[Param_1]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       length="60"
                       name="Param_1">
                       <properties>
@@ -220,8 +218,7 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].ExternalColumns[Param_2]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       length="200"
                       name="Param_2">
                       <properties>
@@ -1170,7 +1167,7 @@
     <DTS:Executable
       DTS:refId="Package\cfDFT_StageContacts"
       DTS:CreationName="SSIS.Pipeline.3"
-      DTS:DTSID="{11858603-6D83-4024-985F-5E084C8401FF}"
+      DTS:DTSID="{4E0A7488-5101-4BA0-BCCC-F74FE9104125}"
       DTS:ExecutableType="SSIS.Pipeline.3"
       DTS:LocaleID="-1"
       DTS:ObjectName="cfDFT_StageContacts"
@@ -1300,7 +1297,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[AddressDate]"
-                      dataType="dbDate"
+                      dataType="bool"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].ExternalColumns[AddressDate]"
@@ -1480,7 +1477,7 @@
                       lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[Address]" />
                     <inputColumn
                       refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].Columns[AddressDate]"
-                      cachedDataType="dbDate"
+                      cachedDataType="bool"
                       cachedName="AddressDate"
                       externalMetadataColumnId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].ExternalColumns[AddressDate]"
                       lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[AddressDate]" />
@@ -1555,7 +1552,7 @@
     <DTS:Executable
       DTS:refId="Package\cfSQL_TruncateStaging"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:DTSID="{32869582-5B1E-4F2A-B300-6E9229ED74C8}"
+      DTS:DTSID="{20448EF8-D2AA-4B56-9CCD-04FCA68241FA}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="cfSQL_TruncateStaging"
@@ -1564,7 +1561,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{09AB47EB-040F-4EF6-ADF5-CF831A204593}"
+          SQLTask:Connection="{E55525DB-34E1-48E4-9873-D2DB937628E1}"
           SQLTask:SqlStatementSource="&#xA;            TRUNCATE TABLE staging.Contacts&#xA;          " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1573,7 +1570,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint_cfDFT_StageContacts_To_cfDFT_LoadContacts]"
       DTS:CreationName=""
-      DTS:DTSID="{2DC5DEFC-F094-46FC-B7FB-A58290176F2F}"
+      DTS:DTSID="{A0F4BC76-A3ED-4B55-A2A2-7E8847843350}"
       DTS:From="Package\cfDFT_StageContacts"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint_cfDFT_StageContacts_To_cfDFT_LoadContacts"
@@ -1581,7 +1578,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint_cfSQL_TruncateStaging_To_cfDFT_StageContacts]"
       DTS:CreationName=""
-      DTS:DTSID="{F41916F8-C11A-45C9-8EEF-43E732F65F4E}"
+      DTS:DTSID="{BD7755CC-4BF5-450F-9FD2-FD66C7B08F7A}"
       DTS:From="Package\cfSQL_TruncateStaging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint_cfSQL_TruncateStaging_To_cfDFT_StageContacts"
@@ -1659,37 +1656,21 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\cfDFT_LoadContacts">
+    design-time-name="Package\cfDFT_StageContacts">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="182,42"
-          Id="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts"
-          TopLeft="5.50000000000006,413.5" />
+          Size="215,42"
+          Id="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts"
+          TopLeft="5.50000000000001,107.5" />
         <NodeLayout
-          Size="150,42"
-          Id="Package\cfDFT_LoadContacts\dfLKP_Existing"
-          TopLeft="270.5,209.5" />
-        <NodeLayout
-          Size="179,42"
-          Id="Package\cfDFT_LoadContacts\dfCSPL_HasChanged"
-          TopLeft="7.00000000000003,311.5" />
-        <NodeLayout
-          Size="198,42"
-          Id="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts"
-          TopLeft="246.5,311.5" />
-        <NodeLayout
-          Size="214,42"
-          Id="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts"
-          TopLeft="238.5,5.5" />
-        <NodeLayout
-          Size="160,42"
-          Id="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup"
-          TopLeft="265.5,107.5" />
+          Size="167,42"
+          Id="Package\cfDFT_StageContacts\dfFFSRC_Contacts"
+          TopLeft="29.5,5.5" />
         <EdgeLayout
-          Id="Package\cfDFT_LoadContacts.Paths[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDeDup]"
-          TopLeft="345.5,47.5">
+          Id="Package\cfDFT_StageContacts.Paths[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts]"
+          TopLeft="113,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1707,126 +1688,6 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\cfDFT_LoadContacts.Paths[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts]"
-          TopLeft="96.5,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-19.19259765625,20.41845703125,38.3851953125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\cfDFT_LoadContacts.Paths[dfLKP_Existing_Match_dfCSPL_HasChanged]"
-          TopLeft="321.833333333333,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-225.333333333333,60"
-              Start="0,0"
-              End="-225.333333333333,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.3799472295514" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.3799472295514"
-                    Point2="0,24.3799472295514"
-                    Point3="-4,24.3799472295514" />
-                  <mssgle:LineSegment
-                    End="-221.333333333333,24.3799472295514" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-221.333333333333,24.3799472295514"
-                    Point2="-225.333333333333,24.3799472295514"
-                    Point3="-225.333333333333,28.3799472295514" />
-                  <mssgle:LineSegment
-                    End="-225.333333333333,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-126.228600260417,29.3799472295514,27.1238671875,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\cfDFT_LoadContacts.Paths[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts]"
-          TopLeft="369.166666666667,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-23.6666666666666,60"
-              Start="0,0"
-              End="-23.6666666666666,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.3799472295515" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.3799472295515"
-                    Point2="0,24.3799472295515"
-                    Point3="-4,24.3799472295515" />
-                  <mssgle:LineSegment
-                    End="-19.6666666666666,24.3799472295515" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-19.6666666666666,24.3799472295515"
-                    Point2="-23.6666666666666,24.3799472295515"
-                    Point3="-23.6666666666666,28.3799472295515" />
-                  <mssgle:LineSegment
-                    End="-23.6666666666666,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-31.4452669270833,29.3799472295515,39.2238671875,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\cfDFT_LoadContacts.Paths[dfCSPL_IsDeDup_dedup_dfLKP_Existing]"
-          TopLeft="345.5,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-14.4255859375,20.4453125,28.851171875,11.609375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

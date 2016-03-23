@@ -11,7 +11,10 @@
 	<Setup>
 	</Setup>
 	<Tests>
-		<Test name="TestPackage" package="Load_Contacts" task="{F75629FA-C41C-4EE6-9307-DC31AC1E583D}" taskResult="Success">
+		<Test name="Get Table Count" package="Package1" task="Get Table Count">
+			<Assert name="Verify Table Count" expectedResult="(int)result==71" testBefore="false" expression="true">
+				<VariableCommand operation="Get" name="tableCount" value=""/>
+			</Assert>
 		</Test>
 	</Tests>
 	<Teardown>

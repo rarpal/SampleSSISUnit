@@ -62,5 +62,16 @@ namespace SSISUnitTests
                 //Assert.AreEqual(true, isTestPassed, "not passed");
             }
         }
+
+        [TestMethod]
+        public void TestPackage()
+        {
+            testSuite = new SsisTestSuite(@"C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\ssisUnitExample.ssisUnit");
+            test = testSuite.Tests["TestPackage"];
+            context = testSuite.CreateContext();
+            bool rs = test.Execute(context);
+            Assert.AreEqual<bool>(true, rs);
+        }
+
     }
 }
