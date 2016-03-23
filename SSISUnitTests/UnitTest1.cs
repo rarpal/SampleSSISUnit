@@ -85,5 +85,17 @@ namespace SSISUnitTests
 
         }
 
+        [TestMethod]
+        public void TestBatch1ContactValues()
+        {
+            testSuite = new SsisTestSuite(@"C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\ssisUnitExample.ssisUnit");
+            test = testSuite.Tests["TestBatch1ContactValues"];
+            testSuite.AssertCompleted += TestSuiteAssertCompleted;
+            isTestPassed = false;
+            context = testSuite.CreateContext();
+            bool rs = test.Execute(context);
+            Assert.AreEqual<bool>(true, isTestPassed);
+            testSuite.AssertCompleted -= TestSuiteAssertCompleted;
+        }
     }
 }
