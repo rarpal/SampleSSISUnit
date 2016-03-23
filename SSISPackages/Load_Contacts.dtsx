@@ -10,8 +10,8 @@
   DTS:LastModifiedProductVersion="11.0.6020.0"
   DTS:LocaleID="2057"
   DTS:ObjectName="Load_Contacts"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{C23A7C43-0F76-4DE9-84C9-703B6036D3F9}"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{11EAAF83-0723-42FE-ABE4-6219A7AC848C}"
   DTS:VersionMajor="0">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
@@ -1297,7 +1297,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[AddressDate]"
-                      dataType="bool"
+                      dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].ExternalColumns[AddressDate]"
@@ -1477,7 +1477,7 @@
                       lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[Address]" />
                     <inputColumn
                       refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].Columns[AddressDate]"
-                      cachedDataType="bool"
+                      cachedDataType="dbDate"
                       cachedName="AddressDate"
                       externalMetadataColumnId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].ExternalColumns[AddressDate]"
                       lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[AddressDate]" />
