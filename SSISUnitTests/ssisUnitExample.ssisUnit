@@ -26,11 +26,11 @@
     <Test name="TestBatch1NewContacts" package="Load_Contacts" task="Load_Contacts" taskResult="Success">
       <TestSetup>
         <FileCommand name="CmdCopyBatch1" operation="Copy" sourcePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts_batch1.txt" targetPath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts.txt" />
-        <SqlCommand name="CmdCleardimContacts" connectionRef="DumpDB" returnValue="false" returnsValue="false">
+        <SqlCommand name="CmdCleardimContacts" connectionRef="DumpDB" returnsValue="false">
           TRUNCATE TABLE dim_Contacts
         </SqlCommand>
       </TestSetup>
-      <Assert name="AssertdimContacts" expectedResult="5" testBefore="false" expression="false">
+      <Assert name="AssertdimContacts" expectedResult="4" testBefore="false" expression="false">
         <SqlCommand name="CmdCountdimContacts" connectionRef="DumpDB" returnsValue="true">
           SELECT COUNT(*) FROM dim_Contacts
         </SqlCommand>
@@ -39,7 +39,7 @@
     <Test name="TestBatch1ContactValues" package="Load_Contacts" task="Load_Contacts" taskResult="Success">
       <TestSetup>
         <FileCommand name="CmdCopyBatch1" operation="Copy" sourcePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts_batch1.txt" targetPath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts.txt" />
-        <SqlCommand name="CmdCleardimContacts" connectionRef="DumpDB" returnValue="false" returnsValue="false">
+        <SqlCommand name="CmdCleardimContacts" connectionRef="DumpDB" returnsValue="false">
           TRUNCATE TABLE dim_Contacts
         </SqlCommand>
       </TestSetup>
@@ -47,7 +47,7 @@
         <SqlCommand name="CmdGetContactsValues" connectionRef="DumpDB" returnsValue="true">
           SELECT 
             CASE WHEN
-                  Name = 'Charlss' AND
+                  Name = 'Charls' AND
 		              Telephone = '76569286717,76520989012' AND
 		              Address = '1A Park Street, Bedford, BD7 9OP' AND
 		              AddressDate = '1987-01-16'
