@@ -16,6 +16,22 @@
   </Connections>
   <Packages>
     <Package Name="Load_Contacts" ProtectionLevel="EncryptSensitiveWithUserKey" ConstraintMode="Linear">
+      <Variables>
+        <Variable Name="pkSourceFilePath" DataType="String">C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\</Variable>
+        <Variable Name="pkDBConnectionString" DataType="String">Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</Variable>
+      </Variables>
+      <Connections>
+        <Connection ConnectionName="cnFlatFile_Contacts">
+          <Expressions>
+            <Expression PropertyName="cnFlatFile_Contacts.ConnectionString">@[User::pkSourceFilePath] + "contacts.txt"</Expression>
+          </Expressions>
+        </Connection>
+        <Connection ConnectionName="cnOLEDB_ContactsDB">
+          <Expressions>
+            <Expression PropertyName="cnOLEDB_ContactsDB.ConnectionString">@[User::pkDBConnectionString]</Expression>
+          </Expressions>
+        </Connection>
+      </Connections>
       <Tasks>
         <ExecuteSQL Name="cfSQL_TruncateStaging" ConnectionName="cnOLEDB_ContactsDB">
           <DirectInput>

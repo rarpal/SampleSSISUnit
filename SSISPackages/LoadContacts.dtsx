@@ -1,0 +1,1897 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/26/2016 12:12:01 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="PALBOOK3"
+  DTS:CreatorName="Ravi"
+  DTS:DTSID="{36CA6390-A419-44E8-86D5-68E5E86AD9C8}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.6020.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="LoadContacts"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{98521EC4-D689-4C0F-A210-11387AD9AA13}"
+  DTS:VersionMajor="0">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[cnFlatFile_Contacts]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{A93E287D-175A-4149-8D9C-72F0036F0DBA}"
+      DTS:ObjectName="cnFlatFile_Contacts">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::pkSourceFilePath] + "contacts.txt"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\contacts.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Number"
+              DTS:DTSID="{7C2A47EC-EEB1-4EFA-B864-5F5936112093}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="60"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{CC2B4ECB-30C5-4B0C-8C70-1E5C48885969}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="60"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Telephone"
+              DTS:DTSID="{1017CB4D-6786-4BA1-8396-0B32C6B8690F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Address"
+              DTS:DTSID="{43FAECE3-2071-4BFD-A195-57B46536FF2A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AddressDate"
+              DTS:DTSID="{4ADD8D2C-CB3E-4767-9C15-78B99D28889C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[cnOLEDB_ContactsDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8F170380-03CD-4CBE-811B-F7A10D31C8CC}"
+      DTS:ObjectName="cnOLEDB_ContactsDB">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::pkDBConnectionString]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{234C4E70-A49F-4E13-9308-86EBC89574D3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="pkDBConnectionString">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F69B5DD6-9986-4899-B6CB-185C3F68BD39}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="pkSourceFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\cfDFT_LoadContacts"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:DTSID="{DA3A1155-2600-4449-81DC-C0F95775BDEE}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="cfDFT_LoadContacts"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts"
+              componentClassID="{93FFEC66-CBC8-4C7F-9C6A-CB1C17A7567D}"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              name="dfCMD_dim_Contacts"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+                UPDATE dim_Contacts SET
+                 Name = ?
+                ,Telephone = ?
+                ,Address = ?
+                ,AddressDate = ?
+                WHERE key_Contact = ?
+              </property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[cnOLEDB_ContactsDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[cnOLEDB_ContactsDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="dfCSPL_HasChanged_changed_dfCMD_dim_Contacts">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].Columns[stg_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="stg_Name"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].ExternalColumns[Param_0]"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Name]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].Columns[stg_Telephone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="stg_Telephone"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].ExternalColumns[Param_1]"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Telephone]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].Columns[stg_Address]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="stg_Address"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].ExternalColumns[Param_2]"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Address]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].Columns[stg_AddressDate]"
+                      cachedDataType="dbDate"
+                      cachedName="stg_AddressDate"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].ExternalColumns[Param_3]"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_AddressDate]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].Columns[key_Contact]"
+                      cachedDataType="i4"
+                      cachedName="key_Contact"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].ExternalColumns[Param_4]"
+                      lineageId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[key_Contact]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].ExternalColumns[Param_3]"
+                      dataType="dbDate"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Outputs[Output]"
+                  exclusionGroup="1"
+                  name="Output"
+                  synchronousInputId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Outputs[Error]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  synchronousInputId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Outputs[Error].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Outputs[Error].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              name="dfCSPL_HasChanged"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Inputs[dfLKP_Existing_Match_dfCSPL_HasChanged]"
+                  name="dfLKP_Existing_Match_dfCSPL_HasChanged">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Inputs[dfLKP_Existing_Match_dfCSPL_HasChanged].Columns[stg_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="stg_Name"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Name]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Inputs[dfLKP_Existing_Match_dfCSPL_HasChanged].Columns[dim_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="dim_Name"
+                      lineageId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_Name]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Inputs[dfLKP_Existing_Match_dfCSPL_HasChanged].Columns[stg_Telephone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="stg_Telephone"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Telephone]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Inputs[dfLKP_Existing_Match_dfCSPL_HasChanged].Columns[dim_Telephone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="dim_Telephone"
+                      lineageId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_Telephone]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Inputs[dfLKP_Existing_Match_dfCSPL_HasChanged].Columns[stg_Address]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="stg_Address"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Address]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Inputs[dfLKP_Existing_Match_dfCSPL_HasChanged].Columns[dim_Address]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="dim_Address"
+                      lineageId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_Address]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Inputs[dfLKP_Existing_Match_dfCSPL_HasChanged].Columns[stg_AddressDate]"
+                      cachedDataType="dbDate"
+                      cachedName="stg_AddressDate"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_AddressDate]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Inputs[dfLKP_Existing_Match_dfCSPL_HasChanged].Columns[dim_AddressDate]"
+                      cachedDataType="dbDate"
+                      cachedName="dim_AddressDate"
+                      lineageId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_AddressDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Outputs[changed]"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="changed"
+                  synchronousInputId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Inputs[dfLKP_Existing_Match_dfCSPL_HasChanged]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      name="Expression">#{Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Name]} != #{Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_Name]} ||
+                    #{Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Telephone]} != #{Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_Telephone]} ||
+                    #{Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Address]} != #{Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_Address]} ||
+                    #{Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_AddressDate]} != #{Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_AddressDate]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      expressionType="Notify"
+                      name="FriendlyExpression">stg_Name != dim_Name ||
+                    stg_Telephone != dim_Telephone ||
+                    stg_Address != dim_Address ||
+                    stg_AddressDate != dim_AddressDate</property>
+                    <property
+                      dataType="System.Int32"
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Outputs[Default]"
+                  exclusionGroup="1"
+                  name="Default"
+                  synchronousInputId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Inputs[dfLKP_Existing_Match_dfCSPL_HasChanged]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Outputs[Error]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  synchronousInputId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Inputs[dfLKP_Existing_Match_dfCSPL_HasChanged]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Outputs[Error].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Outputs[Error].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              name="dfCSPL_IsDeDup"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup.Inputs[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDeDup]"
+                  name="dfOLESRC_staging_Contacts_Output_dfCSPL_IsDeDup">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup.Inputs[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDeDup].Columns[rno]"
+                      cachedDataType="i8"
+                      cachedName="rno"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[rno]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup.Outputs[dedup]"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="dedup"
+                  synchronousInputId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup.Inputs[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDeDup]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      name="Expression">#{Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[rno]} == 1</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      expressionType="Notify"
+                      name="FriendlyExpression">rno == 1</property>
+                    <property
+                      dataType="System.Int32"
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup.Outputs[Default]"
+                  exclusionGroup="1"
+                  name="Default"
+                  synchronousInputId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup.Inputs[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDeDup]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup.Outputs[Error]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  synchronousInputId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup.Inputs[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDeDup]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup.Outputs[Error].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup.Outputs[Error].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\cfDFT_LoadContacts\dfLKP_Existing"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;5"
+              name="dfLKP_Existing"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+                SELECT
+                 dim.key_Contact 
+                ,dim.id_Number
+                ,dim.Name dim_Name
+                ,dim.Telephone dim_Telephone
+                ,dim.Address dim_Address
+                ,dim.AddressDate dim_AddressDate
+                FROM dim_Contacts dim
+              </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (
+                SELECT
+                 dim.key_Contact 
+                ,dim.id_Number
+                ,dim.Name dim_Name
+                ,dim.Telephone dim_Telephone
+                ,dim.Address dim_Address
+                ,dim.AddressDate dim_AddressDate
+                FROM dim_Contacts dim
+              ) [refTable] where [refTable].[id_Number] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;
+  &lt;referenceColumns&gt;
+    &lt;referenceColumn name="key_Contact" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0" /&gt;
+    &lt;referenceColumn name="id_Number" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0" /&gt;
+    &lt;referenceColumn name="dim_Name" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252" /&gt;
+    &lt;referenceColumn name="dim_Telephone" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252" /&gt;
+    &lt;referenceColumn name="dim_Address" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252" /&gt;
+    &lt;referenceColumn name="dim_AddressDate" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0" /&gt;
+  &lt;/referenceColumns&gt;
+&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Number]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\cfDFT_LoadContacts\dfLKP_Existing.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[cnOLEDB_ContactsDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[cnOLEDB_ContactsDB]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\cfDFT_LoadContacts\dfLKP_Existing.Inputs[dfCSPL_IsDeDup_dedup_dfLKP_Existing]"
+                  name="dfCSPL_IsDeDup_dedup_dfLKP_Existing">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfLKP_Existing.Inputs[dfCSPL_IsDeDup_dedup_dfLKP_Existing].Columns[stg_Number]"
+                      cachedDataType="i4"
+                      cachedName="stg_Number"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Number]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">id_Number</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Match"
+                  synchronousInputId="Package\cfDFT_LoadContacts\dfLKP_Existing.Inputs[dfCSPL_IsDeDup_dedup_dfLKP_Existing]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[key_Contact]"
+                      dataType="i4"
+                      errorOrTruncationOperation="CopyColumn"
+                      lineageId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[key_Contact]"
+                      name="key_Contact"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">key_Contact</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="CopyColumn"
+                      length="60"
+                      lineageId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_Name]"
+                      name="dim_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">dim_Name</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="CopyColumn"
+                      length="60"
+                      lineageId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_Telephone]"
+                      name="dim_Telephone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">dim_Telephone</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_Address]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="CopyColumn"
+                      length="200"
+                      lineageId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_Address]"
+                      name="dim_Address"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">dim_Address</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_AddressDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="CopyColumn"
+                      lineageId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match].Columns[dim_AddressDate]"
+                      name="dim_AddressDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">dim_AddressDate</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[NoMatch]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="NoMatch"
+                  synchronousInputId="Package\cfDFT_LoadContacts\dfLKP_Existing.Inputs[dfCSPL_IsDeDup_dedup_dfLKP_Existing]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Error]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  synchronousInputId="Package\cfDFT_LoadContacts\dfLKP_Existing.Inputs[dfCSPL_IsDeDup_dedup_dfLKP_Existing]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Error].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Error].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              name="dfOLEDST_dim_Contacts"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">dim_Contacts</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[cnOLEDB_ContactsDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[cnOLEDB_ContactsDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].Columns[stg_Number]"
+                      cachedDataType="i4"
+                      cachedName="stg_Number"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].ExternalColumns[id_Number]"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Number]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].Columns[stg_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="stg_Name"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].ExternalColumns[Name]"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Name]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].Columns[stg_Telephone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="stg_Telephone"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].ExternalColumns[Telephone]"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Telephone]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].Columns[stg_Address]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="stg_Address"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].ExternalColumns[Address]"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Address]" />
+                    <inputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].Columns[stg_AddressDate]"
+                      cachedDataType="dbDate"
+                      cachedName="stg_AddressDate"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].ExternalColumns[AddressDate]"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_AddressDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].ExternalColumns[key_Contact]"
+                      dataType="i4"
+                      name="key_Contact" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].ExternalColumns[id_Number]"
+                      dataType="i4"
+                      name="id_Number" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].ExternalColumns[Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Telephone" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].ExternalColumns[Address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Address" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts].ExternalColumns[AddressDate]"
+                      dataType="dbDate"
+                      name="AddressDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Outputs[Error]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  synchronousInputId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Outputs[Error].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Outputs[Error].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              name="dfOLESRC_staging_Contacts"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+                SELECT
+                 stg.Number stg_Number
+                ,stg.Name stg_Name
+                ,stg.Telephone stg_Telephone
+                ,stg.Address stg_Address
+                ,stg.AddressDate stg_AddressDate
+                ,ROW_NUMBER() OVER (PARTITION BY stg.Number ORDER BY stg.AddressDate DESC) rno
+                FROM staging.Contacts stg
+              </property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[cnOLEDB_ContactsDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[cnOLEDB_ContactsDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Number]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].ExternalColumns[stg_Number]"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Number]"
+                      name="stg_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].ExternalColumns[stg_Name]"
+                      length="60"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Name]"
+                      name="stg_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].ExternalColumns[stg_Telephone]"
+                      length="60"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Telephone]"
+                      name="stg_Telephone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Address]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].ExternalColumns[stg_Address]"
+                      length="200"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_Address]"
+                      name="stg_Address"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_AddressDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].ExternalColumns[stg_AddressDate]"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[stg_AddressDate]"
+                      name="stg_AddressDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[rno]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].ExternalColumns[rno]"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].Columns[rno]"
+                      name="rno"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].ExternalColumns[stg_Number]"
+                      dataType="i4"
+                      name="stg_Number" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].ExternalColumns[stg_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="stg_Name" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].ExternalColumns[stg_Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="stg_Telephone" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].ExternalColumns[stg_Address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="stg_Address" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].ExternalColumns[stg_AddressDate]"
+                      dataType="dbDate"
+                      name="stg_AddressDate" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output].ExternalColumns[rno]"
+                      dataType="i8"
+                      name="rno" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error]"
+                  isErrorOut="true"
+                  name="Error">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[stg_Number]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[stg_Number]"
+                      name="stg_Number" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[stg_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[stg_Name]"
+                      name="stg_Name" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[stg_Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[stg_Telephone]"
+                      name="stg_Telephone" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[stg_Address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[stg_Address]"
+                      name="stg_Address" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[stg_AddressDate]"
+                      dataType="dbDate"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[stg_AddressDate]"
+                      name="stg_AddressDate" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[rno]"
+                      dataType="i8"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[rno]"
+                      name="rno" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\cfDFT_LoadContacts.Paths[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts]"
+              endId="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts.Inputs[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts]"
+              name="dfCSPL_HasChanged_changed_dfCMD_dim_Contacts"
+              startId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Outputs[changed]" />
+            <path
+              refId="Package\cfDFT_LoadContacts.Paths[dfCSPL_IsDeDup_dedup_dfLKP_Existing]"
+              endId="Package\cfDFT_LoadContacts\dfLKP_Existing.Inputs[dfCSPL_IsDeDup_dedup_dfLKP_Existing]"
+              name="dfCSPL_IsDeDup_dedup_dfLKP_Existing"
+              startId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup.Outputs[dedup]" />
+            <path
+              refId="Package\cfDFT_LoadContacts.Paths[dfLKP_Existing_Match_dfCSPL_HasChanged]"
+              endId="Package\cfDFT_LoadContacts\dfCSPL_HasChanged.Inputs[dfLKP_Existing_Match_dfCSPL_HasChanged]"
+              name="dfLKP_Existing_Match_dfCSPL_HasChanged"
+              startId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[Match]" />
+            <path
+              refId="Package\cfDFT_LoadContacts.Paths[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts]"
+              endId="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts.Inputs[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts]"
+              name="dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts"
+              startId="Package\cfDFT_LoadContacts\dfLKP_Existing.Outputs[NoMatch]" />
+            <path
+              refId="Package\cfDFT_LoadContacts.Paths[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDeDup]"
+              endId="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup.Inputs[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDeDup]"
+              name="dfOLESRC_staging_Contacts_Output_dfCSPL_IsDeDup"
+              startId="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\cfDFT_StageContacts"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:DTSID="{C582DE74-679B-4FD0-93E1-5C94D5CFF780}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="cfDFT_StageContacts"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              localeId="2057"
+              name="dfFFSRC_Contacts"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[cnFlatFile_Contacts]"
+                  connectionManagerRefId="Package.ConnectionManagers[cnFlatFile_Contacts]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[Number]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].ExternalColumns[Number]"
+                      lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[Number]"
+                      name="Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].ExternalColumns[Name]"
+                      length="60"
+                      lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].ExternalColumns[Telephone]"
+                      length="60"
+                      lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[Telephone]"
+                      name="Telephone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[Address]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].ExternalColumns[Address]"
+                      length="200"
+                      lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[Address]"
+                      name="Address"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[AddressDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].ExternalColumns[AddressDate]"
+                      lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[AddressDate]"
+                      name="AddressDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].ExternalColumns[Number]"
+                      dataType="i4"
+                      name="Number" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].ExternalColumns[Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Telephone" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].ExternalColumns[Address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Address" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].ExternalColumns[AddressDate]"
+                      dataType="dbDate"
+                      name="AddressDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Error]"
+                  isErrorOut="true"
+                  name="Error">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Error].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Error].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Error].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Error].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              name="dfOLEDST_staging_Contacts"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">staging.Contacts</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[cnOLEDB_ContactsDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[cnOLEDB_ContactsDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].Columns[Number]"
+                      cachedDataType="i4"
+                      cachedName="Number"
+                      externalMetadataColumnId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].ExternalColumns[Number]"
+                      lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[Number]" />
+                    <inputColumn
+                      refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].ExternalColumns[Name]"
+                      lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].Columns[Telephone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="Telephone"
+                      externalMetadataColumnId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].ExternalColumns[Telephone]"
+                      lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[Telephone]" />
+                    <inputColumn
+                      refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].Columns[Address]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Address"
+                      externalMetadataColumnId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].ExternalColumns[Address]"
+                      lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[Address]" />
+                    <inputColumn
+                      refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].Columns[AddressDate]"
+                      cachedDataType="dbDate"
+                      cachedName="AddressDate"
+                      externalMetadataColumnId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].ExternalColumns[AddressDate]"
+                      lineageId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output].Columns[AddressDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].ExternalColumns[Number]"
+                      dataType="i4"
+                      name="Number" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].ExternalColumns[Telephone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Telephone" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].ExternalColumns[Address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Address" />
+                    <externalMetadataColumn
+                      refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts].ExternalColumns[AddressDate]"
+                      dataType="dbDate"
+                      name="AddressDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Outputs[Error]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  synchronousInputId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Outputs[Error].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Outputs[Error].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\cfDFT_StageContacts.Paths[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts]"
+              endId="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts.Inputs[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts]"
+              name="dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts"
+              startId="Package\cfDFT_StageContacts\dfFFSRC_Contacts.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\cfSQL_TruncateStaging"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:DTSID="{CA715A19-42A3-4BAA-82BE-DDE695171B0D}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="cfSQL_TruncateStaging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8F170380-03CD-4CBE-811B-F7A10D31C8CC}"
+          SQLTask:SqlStatementSource="&#xA;            TRUNCATE TABLE staging.Contacts&#xA;          " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint_cfDFT_StageContacts_To_cfDFT_LoadContacts]"
+      DTS:CreationName=""
+      DTS:DTSID="{F4A6BB8E-02C6-4D35-880E-C3B4F16D2BCA}"
+      DTS:From="Package\cfDFT_StageContacts"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint_cfDFT_StageContacts_To_cfDFT_LoadContacts"
+      DTS:To="Package\cfDFT_LoadContacts" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint_cfSQL_TruncateStaging_To_cfDFT_StageContacts]"
+      DTS:CreationName=""
+      DTS:DTSID="{F881724D-CA98-4CB5-8F82-21B5B470EE34}"
+      DTS:From="Package\cfSQL_TruncateStaging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint_cfSQL_TruncateStaging_To_cfDFT_StageContacts"
+      DTS:To="Package\cfDFT_StageContacts" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\cfDFT_LoadContacts"
+          TopLeft="12.5,209.5" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\cfDFT_StageContacts"
+          TopLeft="10.5,107.5" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\cfSQL_TruncateStaging"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint_cfSQL_TruncateStaging_To_cfDFT_StageContacts]"
+          TopLeft="101,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint_cfDFT_StageContacts_To_cfDFT_LoadContacts]"
+          TopLeft="101,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\cfDFT_LoadContacts">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="182,42"
+          Id="Package\cfDFT_LoadContacts\dfCMD_dim_Contacts"
+          TopLeft="5.50000000000006,413.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\cfDFT_LoadContacts\dfLKP_Existing"
+          TopLeft="270.5,209.5" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\cfDFT_LoadContacts\dfCSPL_HasChanged"
+          TopLeft="7.00000000000003,311.5" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\cfDFT_LoadContacts\dfOLEDST_dim_Contacts"
+          TopLeft="246.5,311.5" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\cfDFT_LoadContacts\dfOLESRC_staging_Contacts"
+          TopLeft="238.5,5.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\cfDFT_LoadContacts\dfCSPL_IsDeDup"
+          TopLeft="265.5,107.5" />
+        <EdgeLayout
+          Id="Package\cfDFT_LoadContacts.Paths[dfOLESRC_staging_Contacts_Output_dfCSPL_IsDeDup]"
+          TopLeft="345.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\cfDFT_LoadContacts.Paths[dfCSPL_HasChanged_changed_dfCMD_dim_Contacts]"
+          TopLeft="96.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-19.19259765625,20.41845703125,38.3851953125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\cfDFT_LoadContacts.Paths[dfLKP_Existing_Match_dfCSPL_HasChanged]"
+          TopLeft="321.833333333333,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-225.333333333333,60"
+              Start="0,0"
+              End="-225.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3799472295514" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3799472295514"
+                    Point2="0,24.3799472295514"
+                    Point3="-4,24.3799472295514" />
+                  <mssgle:LineSegment
+                    End="-221.333333333333,24.3799472295514" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-221.333333333333,24.3799472295514"
+                    Point2="-225.333333333333,24.3799472295514"
+                    Point3="-225.333333333333,28.3799472295514" />
+                  <mssgle:LineSegment
+                    End="-225.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-126.228600260417,29.3799472295514,27.1238671875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\cfDFT_LoadContacts.Paths[dfLKP_Existing_NoMatch_dfOLEDST_dim_Contacts]"
+          TopLeft="369.166666666667,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.6666666666666,60"
+              Start="0,0"
+              End="-23.6666666666666,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3799472295515" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3799472295515"
+                    Point2="0,24.3799472295515"
+                    Point3="-4,24.3799472295515" />
+                  <mssgle:LineSegment
+                    End="-19.6666666666666,24.3799472295515" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.6666666666666,24.3799472295515"
+                    Point2="-23.6666666666666,24.3799472295515"
+                    Point3="-23.6666666666666,28.3799472295515" />
+                  <mssgle:LineSegment
+                    End="-23.6666666666666,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-31.4452669270833,29.3799472295515,39.2238671875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\cfDFT_LoadContacts.Paths[dfCSPL_IsDeDup_dedup_dfLKP_Existing]"
+          TopLeft="345.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-14.4255859375,20.4453125,28.851171875,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\cfDFT_StageContacts">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="215,42"
+          Id="Package\cfDFT_StageContacts\dfOLEDST_staging_Contacts"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\cfDFT_StageContacts\dfFFSRC_Contacts"
+          TopLeft="29.5,5.5" />
+        <EdgeLayout
+          Id="Package\cfDFT_StageContacts.Paths[dfFFSRC_Contacts_Output_dfOLEDST_staging_Contacts]"
+          TopLeft="113,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

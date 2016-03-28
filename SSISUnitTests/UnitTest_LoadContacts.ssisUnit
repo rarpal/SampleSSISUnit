@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSuite xmlns="http://tempuri.org/SsisUnit.xsd">
+  <ConnectionList>
+    <Connection name="ContactsDB" connection="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" connectionType="ConnectionString" invariantType="" />
+  </ConnectionList>
+  <PackageList>
+    <Package name="LoadContacts" packagePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISPackages\LoadContacts.dtsx" server="" storageType="FileSystem" />
+  </PackageList>
+  <DatasetList />
+  <TestSuiteSetup />
+  <Setup />
+  <Tests>
+    
+    <Test name="TestPackage" package="LoadContacts" task="LoadContacts" taskResult="Success">
+      <TestSetup>
+        <VariableCommand name="pkSourceFilePath" operation="Set" value="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\" />
+        <VariableCommand name="pkDBConnectionString" operation="Set" value="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </TestSetup>
+    </Test>
+    
+    <Test name="TestBatch1Staging" package="LoadContacts" task="cfDFT_StageContacts" taskResult="Success">
+      <TestSetup>
+        <VariableCommand name="pkSourceFilePath" operation="Set" value="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\" />
+        <VariableCommand name="pkDBConnectionString" operation="Set" value="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+        <FileCommand name="CmdCopyBatch1" operation="Copy" sourcePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\contacts_batch1.txt" targetPath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\contacts.txt" />
+        <SqlCommand name="CmdClearStaging" connectionRef="ContactsDB" returnsValue="false">
+          TRUNCATE TABLE staging.Contacts
+        </SqlCommand>
+      </TestSetup>
+      <Assert name="AssertStagingContacts" expectedResult="6" testBefore="false" expression="false">
+        <SqlCommand name="CmdCountStagingContacts" connectionRef="ContactsDB" returnsValue="true">
+          SELECT COUNT(*) FROM staging.Contacts
+        </SqlCommand>
+      </Assert>
+    </Test>
+    
+    <Test name="TestBatch1NewContacts" package="LoadContacts" task="LoadContacts" taskResult="Success">
+      <TestSetup>
+        <VariableCommand name="pkSourceFilePath" operation="Set" value="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\" />
+        <VariableCommand name="pkDBConnectionString" operation="Set" value="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+        <FileCommand name="CmdCopyBatch1" operation="Copy" sourcePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\contacts_batch1.txt" targetPath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\contacts.txt" />
+        <SqlCommand name="CmdCleardimContacts" connectionRef="ContactsDB" returnsValue="false">
+          TRUNCATE TABLE dim_Contacts
+        </SqlCommand>
+      </TestSetup>
+      <Assert name="AssertNewContacts" expectedResult="4" testBefore="false" expression="false">
+        <SqlCommand name="CmdCountdimContacts" connectionRef="ContactsDB" returnsValue="true">
+          SELECT COUNT(*) FROM dim_Contacts
+        </SqlCommand>
+      </Assert>
+    </Test>
+    
+    <Test name="TestBatch1ContactsReload" package="LoadContacts" task="LoadContacts" taskResult="Success">
+      <TestSetup>
+        <VariableCommand name="pkSourceFilePath" operation="Set" value="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\" />
+        <VariableCommand name="pkDBConnectionString" operation="Set" value="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+        <FileCommand name="CmdCopyBatch1" operation="Copy" sourcePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\contacts_batch1.txt" targetPath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\contacts.txt" />
+      </TestSetup>
+      <Assert name="AssertNewContacts" expectedResult="4" testBefore="false" expression="false">
+        <SqlCommand name="CmdCountdimContacts" connectionRef="ContactsDB" returnsValue="true">
+          SELECT COUNT(*) FROM dim_Contacts
+        </SqlCommand>
+      </Assert>
+    </Test>
+    
+    <Test name="TestBatch1ContactValues" package="LoadContacts" task="LoadContacts" taskResult="Success">
+      <TestSetup>
+        <VariableCommand name="pkSourceFilePath" operation="Set" value="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\" />
+        <VariableCommand name="pkDBConnectionString" operation="Set" value="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+        <FileCommand name="CmdCopyBatch1" operation="Copy" sourcePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\contacts_batch1.txt" targetPath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\contacts.txt" />
+        <SqlCommand name="CmdCleardimContacts" connectionRef="ContactsDB" returnsValue="false">
+          TRUNCATE TABLE dim_Contacts
+        </SqlCommand>
+      </TestSetup>
+      <Assert name="AssertContactValues" expectedResult="1" testBefore="false" expression="false">
+        <SqlCommand name="CmdGetContactsValues" connectionRef="ContactsDB" returnsValue="true">
+          SELECT 
+            CASE WHEN
+                  Name = 'Charls' AND
+		              Telephone = '76569286717,76520989012' AND
+		              Address = '1A Park Street, Bedford, BD7 9OP' AND
+		              AddressDate = '1987-01-16'
+	            THEN 1 ELSE 0 END
+          FROM dim_Contacts 
+          WHERE id_Number=2
+        </SqlCommand>
+      </Assert>
+    </Test>
+    
+    <Test name="TestBatch1NewDedupContact" package="LoadContacts" task="LoadContacts" taskResult="Success">
+      <TestSetup>
+        <VariableCommand name="pkSourceFilePath" operation="Set" value="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\" />
+        <VariableCommand name="pkDBConnectionString" operation="Set" value="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+        <FileCommand name="CmdCopyBatch1" operation="Copy" sourcePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\contacts_batch1.txt" targetPath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\contacts.txt" />
+        <SqlCommand name="CmdCleardimContacts" connectionRef="ContactsDB" returnsValue="false">
+          TRUNCATE TABLE dim_Contacts
+        </SqlCommand>
+      </TestSetup>
+      <Assert name="AssertDedupNewContact" expectedResult="1" testBefore="false" expression="false">
+        <SqlCommand name="CmdGetContactsValues" connectionRef="ContactsDB" returnsValue="true">
+          SELECT 
+            CASE WHEN
+                  Name = 'James' AND
+		              Telephone = '78738742356,89389374351,76376318735' AND
+		              Address = '154 Arvin Drive, Middlesex, MH5 7GD' AND
+		              AddressDate = '2005-12-14'
+	            THEN 1 ELSE 0 END
+          FROM dim_Contacts 
+          WHERE id_Number=1
+        </SqlCommand>
+      </Assert>
+    </Test>
+  
+    <Test name="TestBatch2NewContacts" package="LoadContacts" task="LoadContacts" taskResult="Success">
+      <TestSetup>
+        <VariableCommand name="pkSourceFilePath" operation="Set" value="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\" />
+        <VariableCommand name="pkDBConnectionString" operation="Set" value="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+        <FileCommand name="CmdCopyBatch1" operation="Copy" sourcePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\contacts_batch2.txt" targetPath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\contacts.txt" />
+      </TestSetup>
+      <Assert name="AssertNewContacts" expectedResult="5" testBefore="false" expression="false">
+        <SqlCommand name="CmdCountdimContacts" connectionRef="ContactsDB" returnsValue="true">
+          SELECT COUNT(*) FROM dim_Contacts
+        </SqlCommand>
+      </Assert>
+    </Test>
+    
+    <Test name="TestBatch2OldDedupContact" package="LoadContacts" task="LoadContacts" taskResult="Success">
+      <TestSetup>
+        <VariableCommand name="pkSourceFilePath" operation="Set" value="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\" />
+        <VariableCommand name="pkDBConnectionString" operation="Set" value="Data Source=paldesk;Initial Catalog=Dump;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+        <FileCommand name="CmdCopyBatch1" operation="Copy" sourcePath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\contacts_batch2.txt" targetPath="C:\Users\Ravi\PalProjects\RandD\SampleSSISUnit\SSISUnitTests\SourceFiles\contacts.txt" />
+      </TestSetup>
+      <Assert name="AssertOldDedupContact" expectedResult="1" testBefore="false" expression="false">
+        <SqlCommand name="CmdGetContactsValues" connectionRef="ContactsDB" returnsValue="true">
+          SELECT 
+            CASE WHEN
+                  Name = 'Charls' AND
+		              Telephone = '76569286717,76520989012,87293752635' AND
+		              Address = '78 Station Road, Bedford, BD3 6TU' AND
+		              AddressDate = '2001-04-15'
+	            THEN 1 ELSE 0 END
+          FROM dim_Contacts 
+          WHERE id_Number=2
+        </SqlCommand>
+      </Assert>
+    </Test>
+  
+  </Tests>
+  <Teardown />
+  <TestSuiteTeardown />
+</TestSuite>
