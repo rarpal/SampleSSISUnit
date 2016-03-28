@@ -1,6 +1,8 @@
 # SampleSSISUnit
 SSIS unit testing with SSISUnit framework in Visual Studio
 
+For an in-depth walkthrough of this implementation refer to the article on my blog http://www.ravipal.net/2016/03/ssis-unit-testing-with-ssisunit.html
+
 The following is a list of test cases that we will be aiming to develop. These might seem trivial cases, but remember, we re trying to keep things simple as far as the subject matter is concerned and pay more attention to learning how SSISUnit work and how to integrate it with Visual Studios.
 Test cases
 
